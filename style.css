@@ -6,8 +6,9 @@
 :root {
     --bg-primary: #000000;
     --text-primary: #00ff00;
-    --text-dim: #00aa00;
-    --link-hover: #00ffff;
+    --text-dim: #00ffff;
+    --text-accent: #ff00ff;
+    --link-hover: #ff00ff;
     --spacing-unit: 1rem;
     --max-width: 65ch;
 }
@@ -37,10 +38,6 @@ body {
 .container {
     max-width: var(--max-width);
     margin: 0 auto;
-    background-color: #000000;
-    border: 1px solid var(--text-primary);
-    border-radius: 4px;
-    padding: calc(var(--spacing-unit) * 1.5);
 }
 
 /* Utility Classes */
@@ -117,13 +114,24 @@ h1, h2, h3, h4, h5, h6 {
 h2 {
     font-size: 1.2rem;
     margin-bottom: calc(var(--spacing-unit) * 0.75);
-    color: var(--text-primary);
 }
 
 h3 {
     font-size: 1rem;
     margin-bottom: calc(var(--spacing-unit) * 0.5);
-    color: var(--text-dim);
+}
+
+/* Terminal semantic colors */
+.prompt-symbol {
+    color: #ff6600; /* orange for prompts */
+}
+
+.command {
+    color: #00ff00; /* green for commands - same as body text */
+}
+
+.category-name {
+    color: #00ff00; /* green for category names - same as body text */
 }
 
 p {
@@ -132,7 +140,7 @@ p {
 
 /* Links */
 a {
-    color: var(--text-primary);
+    color: #ff00ff;
     text-decoration: underline;
     transition: color 0.2s ease;
 }
@@ -142,10 +150,11 @@ a:focus {
     color: var(--link-hover);
     outline: 2px solid var(--link-hover);
     outline-offset: 2px;
+    text-decoration: none;
 }
 
 a:visited {
-    color: var(--text-dim);
+    color: #ff0000; /* red for visited links */
 }
 
 /* Touch-friendly tap targets */
@@ -163,7 +172,6 @@ section {
 }
 
 .about p {
-    color: var(--text-dim);
     font-style: italic;
 }
 
@@ -185,7 +193,7 @@ li {
 }
 
 .date {
-    color: var(--text-dim);
+    color: #00ffff;
     font-size: 0.9rem;
     flex-shrink: 0;
 }
@@ -206,14 +214,17 @@ li {
     align-items: center;
     gap: calc(var(--spacing-unit) * 0.5);
     padding: calc(var(--spacing-unit) * 0.5);
-    border: 1px solid var(--text-primary);
+    background-color: #ff00ff;
+    color: #000000;
     text-decoration: none;
 }
 
 .rss-link:hover,
 .rss-link:focus {
-    background-color: var(--text-primary);
-    color: var(--bg-primary);
+    background-color: #000000;
+    color: #ff00ff;
+    outline: 2px solid #ff00ff;
+    outline-offset: 2px;
 }
 
 .rss-icon {
