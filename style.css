@@ -40,6 +40,25 @@ body {
     margin: 0 auto;
 }
 
+/* Utility Classes */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.terminal-prompt {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+}
+
 /* Skip Link for Accessibility */
 .skip-link {
     position: absolute;
@@ -175,11 +194,11 @@ li {
 }
 
 /* Link Categories */
-.link-category {
+nav[aria-label$="links"] {
     margin-bottom: calc(var(--spacing-unit) * 1.5);
 }
 
-.link-category ul {
+nav[aria-label$="links"] ul {
     margin-left: calc(var(--spacing-unit) * 1.5);
 }
 
