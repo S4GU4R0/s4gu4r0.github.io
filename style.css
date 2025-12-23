@@ -102,10 +102,14 @@ header {
 }
 
 @keyframes blink {
-    0%, 50% {
+
+    0%,
+    50% {
         opacity: 1;
     }
-    50.1%, 100% {
+
+    50.1%,
+    100% {
         opacity: 0;
     }
 }
@@ -120,7 +124,12 @@ header {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: bold;
     line-height: 1.2;
 }
@@ -313,11 +322,11 @@ footer {
     html {
         font-size: 18px;
     }
-    
+
     .site-title {
         font-size: 2rem;
     }
-    
+
     h2 {
         font-size: 1.4rem;
     }
@@ -329,17 +338,17 @@ footer {
         background: white;
         color: black;
     }
-    
+
     a {
         color: black;
         text-decoration: underline;
     }
-    
+
     .cursor {
         animation: none;
         opacity: 0;
     }
-    
+
     .skip-link {
         display: none;
     }
@@ -359,7 +368,7 @@ footer {
         animation: none;
         opacity: 1;
     }
-    
+
     * {
         transition: none !important;
     }
