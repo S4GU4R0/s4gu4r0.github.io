@@ -4,14 +4,14 @@
 
 /* CSS Variables for Theming */
 :root {
-    --bg-primary: #2e3440;
-    --bg-secondary: #3b4252;
-    --text-primary: #88c0d0;
-    --text-secondary: #81a1c1;
-    --text-dim: #4c566a;
-    --text-accent: #a3be8c;
-    --link-hover: #88c0d0;
-    --border-color: #4c566a;
+    --bg-primary: #0c0c0c;
+    --bg-secondary: #1a1a1a;
+    --text-primary: #00ff00;
+    --text-secondary: #00cc00;
+    --text-dim: #006600;
+    --text-accent: #00ff00;
+    --link-hover: #00ffff;
+    --border-color: #00ff00;
     --spacing-unit: 1rem;
     --max-width: 65ch;
 }
