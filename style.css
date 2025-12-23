@@ -1,11 +1,13 @@
+/* ============================================
+   S4GU4R0.wtf - Terminal Aesthetic Stylesheet
+   ============================================ */
+
 /* CSS Variables for Theming */
 :root {
     --bg-primary: #000000;
     --text-primary: #00ff00;
     --text-dim: #00aa00;
-    --text-accent: #00ff00;
     --link-hover: #00ffff;
-    --border-color: #00ff00;
     --spacing-unit: 1rem;
     --max-width: 65ch;
 }
@@ -31,12 +33,12 @@ body {
     min-height: 100vh;
 }
 
-/* Container with terminal window styling */
+/* Container */
 .container {
     max-width: var(--max-width);
     margin: 0 auto;
     background-color: #000000;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--text-primary);
     border-radius: 4px;
     padding: calc(var(--spacing-unit) * 1.5);
 }
@@ -52,12 +54,6 @@ body {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border-width: 0;
-}
-
-.terminal-prompt {
-    color: var(--text-dim);
-    font-size: 0.9rem;
-    margin-bottom: calc(var(--spacing-unit) * 0.5);
 }
 
 /* Skip Link for Accessibility */
@@ -105,7 +101,7 @@ header {
 
 /* ASCII Decorative Lines */
 .ascii-line {
-    color: var(--border-color);
+    color: var(--text-dim);
     font-size: 0.75rem;
     margin: calc(var(--spacing-unit) * 1.5) 0;
     overflow-x: auto;
@@ -127,7 +123,7 @@ h2 {
 h3 {
     font-size: 1rem;
     margin-bottom: calc(var(--spacing-unit) * 0.5);
-    color: var(--text-accent);
+    color: var(--text-dim);
 }
 
 p {
@@ -195,34 +191,12 @@ li {
 }
 
 /* Link Categories */
-nav[aria-label$="links"] {
+.link-category {
     margin-bottom: calc(var(--spacing-unit) * 1.5);
 }
 
-nav[aria-label$="links"] ul {
+.link-category ul {
     margin-left: calc(var(--spacing-unit) * 1.5);
-}
-
-/* Activity List with Bars */
-.activity-list li {
-    display: flex;
-    align-items: center;
-    gap: calc(var(--spacing-unit) * 0.5);
-    flex-wrap: wrap;
-}
-
-.activity-bar {
-    font-family: 'Courier New', 'Courier', monospace;
-    color: var(--text-dim);
-    font-size: 0.8rem;
-    letter-spacing: -0.1em;
-    flex-shrink: 0;
-}
-
-.activity-label {
-    color: var(--text-inactive);
-    font-size: 0.85rem;
-    margin-left: auto;
 }
 
 /* RSS Section */
@@ -246,59 +220,10 @@ nav[aria-label$="links"] ul {
     font-weight: bold;
 }
 
-/* Post Styles */
-.post {
-    margin-bottom: calc(var(--spacing-unit) * 2);
-}
-
-.post-header {
-    margin-bottom: calc(var(--spacing-unit) * 2);
-}
-
-.post-meta {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: var(--spacing-unit);
-    font-size: 0.9rem;
-    color: var(--text-dim);
-    margin-bottom: calc(var(--spacing-unit) * 0.5);
-}
-
-.back-link {
-    color: var(--text-dim);
-    text-decoration: none;
-}
-
-.back-link:hover,
-.back-link:focus {
-    color: var(--link-hover);
-    text-decoration: underline;
-}
-
-.post-content p {
-    margin-bottom: calc(var(--spacing-unit) * 1.5);
-    line-height: 1.8;
-}
-
-.post-footer {
-    margin-top: calc(var(--spacing-unit) * 2);
-}
-
-.rss-link-small {
-    font-size: 0.9rem;
-    color: var(--text-dim);
-}
-
 /* Footer */
 footer {
     margin-top: calc(var(--spacing-unit) * 3);
     padding-top: var(--spacing-unit);
-}
-
-.prompt {
-    color: var(--text-dim);
-    font-size: 0.9rem;
 }
 
 /* Responsive Adjustments */
