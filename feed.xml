@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>S4GU4R0.wtf</title>
+    <link>https://s4gu4r0.wtf</link>
+    <description>Saguaro Prole: Private case manager, web developer, author, and student. Interested in things pertaining to being human and being alive.</description>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Dec 2024 12:00:00 GMT</lastBuildDate>
+    <atom:link href="https://s4gu4r0.wtf/feed.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Welcome to the Terminal</title>
+      <link>https://s4gu4r0.wtf/posts/welcome.html</link>
+      <description>First post from the command line. Exploring what it means to build in the open.</description>
+      <pubDate>Fri, 20 Dec 2024 12:00:00 GMT</pubDate>
+      <guid>https://s4gu4r0.wtf/posts/welcome.html</guid>
+    </item>
+    
+    <item>
+      <title>On Being Human</title>
+      <link>https://s4gu4r0.wtf/posts/on-being-human.html</link>
+      <description>Reflections on what it means to be human in an increasingly digital world.</description>
+      <pubDate>Sun, 15 Dec 2024 12:00:00 GMT</pubDate>
+      <guid>https://s4gu4r0.wtf/posts/on-being-human.html</guid>
+    </item>
+    
+    <item>
+      <title>Case Management Notes</title>
+      <link>https://s4gu4r0.wtf/posts/case-management-notes.html</link>
+      <description>Thoughts on the work of caring for others and navigating systems.</description>
+      <pubDate>Tue, 10 Dec 2024 12:00:00 GMT</pubDate>
+      <guid>https://s4gu4r0.wtf/posts/case-management-notes.html</guid>
+    </item>
+  </channel>
+</rss>

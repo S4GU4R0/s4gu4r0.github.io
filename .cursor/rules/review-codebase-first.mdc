@@ -1,8 +1,0 @@
----
-description: 
-globs: 
-alwaysApply: true
----
-# Codebase Review Requirement
-
-Before suggesting any solution, you must thoroughly review the relevant parts of the codebase. Do not propose fixes, workarounds, or recommendations without first examining the actual code and project structure. All suggestions must be based on direct codebase review, not assumptions or general knowledge.

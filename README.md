@@ -1,182 +1,171 @@
-# React 19 + TypeScript + Vite Template
+# S4GU4R0.wtf
 
-> A modern, feature-rich template for building scalable React applications with the latest tools and best practices.
+A minimal, terminal-aesthetic personal website built with XHTML, CSS, and following the rule of least power.
 
-## ✨ Key Features
+## Philosophy
 
-- 🚀 **React 19** - Experience the future with the new React Compiler
-- ⚡ **Vite** - Lightning-fast development with instant HMR
-- 🎯 **TypeScript** - Type-safe development with latest features
-- 🎨 **TailwindCSS** - Utility-first CSS with modern preset
-- 🔄 **TanStack Router** - Type-safe routing with code splitting
-- 📡 **TanStack Query** - Powerful data synchronization
-- ✅ **Vitest** - Next-generation testing framework
-- 📦 **PNPM** - Fast, disk space efficient package manager
-- 🔍 **ESLint + Prettier** - Modern linting and code formatting
+- **Rule of Least Power**: Uses the simplest technology that works (XHTML for structure, CSS for presentation)
+- **Mobile-First**: Designed for mobile devices first, scales up gracefully
+- **Terminal Aesthetic**: Green text on black background, monospace fonts, ASCII art decorations
+- **Accessibility**: Semantic HTML, skip links, proper heading hierarchy, works without CSS/JS
+- **No JavaScript**: Site is fully functional without any JavaScript
 
-## ⚠️ Disclaimer
+## File Structure
 
-This template is designed to stay cutting-edge, which means it:
+```
+/
+├── index.html          # Homepage with post list and links
+├── style.css           # All styles (terminal aesthetic)
+├── feed.xml           # RSS feed
+├── posts/
+│   └── welcome.html   # Sample blog post
+└── README.md          # This file
+```
 
-    May not suit all workflows due to frequent updates with the latest tools and features.
-    Focuses on Client-Side Rendering (CSR) for SPAs. For SSR/SSG, consider using frameworks like:
-        Next.js
-        Remix (React Router 7)
-        TanStack Start (beta).
-    Includes experimental features that are tested but could still pose compatibility risks.
+## Adding a New Post
 
-## 📚 Documentation
+### 1. Create the HTML file
 
-### Preretirement
-
-Latest lts for node js, and pnpm installed.
-
-### Getting Started
-
-Two options here either use github's `Use this template` button or do it by cloning the code, there is a script to help clean up git and setup it up.
+Copy `posts/welcome.html` and modify it:
 
 ```bash
-# Clone the repository
-git clone https://github.com/FerMPY/react-ts-template.git my-app
-
-# Navigate to project directory
-cd my-app
-
-# Install dependencies
-pnpm install
-
-# CLean up git
-pnpm node --experimental-strip-types ./scripts/setup.ts
-
-# Start development server
-pnpm dev
+cp posts/welcome.html posts/your-post-name.html
 ```
 
-### Available Scripts
+Update:
+- `<title>` tag
+- `<meta>` description
+- `og:title`, `og:description`, `og:url`
+- Post date in `[YYYY-MM-DD]` format
+- Post title in `<h2>`
+- Post content in the `.post-content` div
 
-| Command             | Description                |
-| ------------------- | -------------------------- |
-| \`pnpm dev\`        | Start development server   |
-| \`pnpm build\`      | Build for production       |
-| \`pnpm preview\`    | Preview production build   |
-| \`pnpm test\`       | Run tests                  |
-| \`pnpm format\`     | Run Prettier over the code |
-| \`pnpm lint\`       | Lint code                  |
-| \`pnpm type-check\` | Check types                |
+### 2. Add to index.html
 
-### Project Structure
+In `index.html`, add a new list item to the "Recent Posts" section:
 
-```
-.
-├── eslint.config.js
-├── index.html
-├── LICENCE
-├── lint-staged.config.js
-├── package.json
-├── pnpm-lock.yaml
-├── postcss.config.js
-├── public
-│   ├── React-icon.svg
-│   ├── tailwind.png
-│   ├── tanstack.webp
-│   ├── typescript.svg
-│   └── vite.svg
-├── README.md
-├── scripts
-│   └── setup.ts
-├── src
-│   ├── components
-│   ├── main.tsx
-│   ├── queries
-│   ├── routes
-│   ├── routeTree.gen.ts
-│   ├── styles
-│   └── vite-env.d.ts
-├── tailwind.config.ts
-├── tests
-│   ├── setup.tsx
-│   └── utils
-├── tsconfig.app.json
-├── tsconfig.json
-├── tsconfig.node.json
-└── vite.config.ts
+```html
+<li><span class="date">[2024-12-20]</span> <a href="posts/your-post-name.html">Your Post Title</a></li>
 ```
 
-### Performance Optimizations
+Keep posts in reverse chronological order (newest first).
 
-- ⚡ Route-based code splitting
-- 🔄 Optimistic updates with TanStack Query
-- 📦 Tree-shaking for smaller bundles
-- 🎯 Type-only imports
-- 🚀 React Compiler optimizations
+### 3. Update feed.xml
 
-### Testing
+Add a new `<item>` to the RSS feed (at the top, before other items):
 
-This template comes with a little helper `render-with-router` to help with writing tests with Tanstack Router, this comes with 2 options withUser that will add a user so you can run the tests and a with withQueryClient that adds Tanstack query to your tests, also globals are turned for Vitest.
-
-```typescript
-// Example test using Vitest with render-with-router
-import { renderWithRouter } from ".";
-import { useRouter } from "@tanstack/react-router";
-
-const TestComponent = () => {
-  const _router = useRouter({ warn: true });
-
-  return <div>TestComponent</div>;
-};
-
-describe('Button', () => {
-  it('renders correctly', () => {
-    { user } = renderWithRouter(TestComponent, { withUser: true, withQueryClient: true });
-    user.click('button');
-  });
-});
+```xml
+<item>
+  <title>Your Post Title</title>
+  <link>https://s4gu4r0.wtf/posts/your-post-name.html</link>
+  <description>Brief description of your post.</description>
+  <pubDate>Fri, 20 Dec 2024 12:00:00 GMT</pubDate>
+  <guid>https://s4gu4r0.wtf/posts/your-post-name.html</guid>
+</item>
 ```
 
-## 🛠️ Tools and Libraries for React Development
+Update `<lastBuildDate>` in the feed to match the newest post date.
 
-While this template provides a solid foundation, you might find these additional tools and libraries useful as your application grows:
+## Updating Links
 
-### State Management
+### Social Media Links
 
-[Zustand](https://zustand.docs.pmnd.rs/getting-started/introduction): A minimal, unopinionated state management library cwith a simple API and hooks.
-[Jotai](https://jotai.org/): A primitive and flexible state management library for React with atomic state.
+Edit the "External Links" section in `index.html`. Links are organized by category:
 
-### UI/UX Libraries
+- **Support**: Wishlist, payment platforms
+- **Social Media**: Ranked by activity (most to least)
+- **Chat/Communities**: Ranked by activity
+- **Gaming**: Gaming platforms
+- **Forums**: Forum links
 
-[Fluid-Tailwind](https://fluid.tw/): A utility-focused library that extends TailwindCSS for a more fluid design approach.
-[shadcn/ui](https://ui.shadcn.com/c): A modern library that combines design tokens and utility classes for rapid UI development.
+### Activity Indicators
 
-### ORMs
+The activity bars use block characters:
+- `████████░░` = 8/10 (daily/very active)
+- `██████░░░░` = 6/10 (weekly/active)
+- `███░░░░░░░` = 3/10 (monthly/occasional)
 
-[Prisma](https://www.prisma.io/): A powerful ORM for working with databases, enabling type-safe queries and schema migrations.
-[Drizzle](https://orm.drizzle.team/): A lightweight ORM alternative that offers a simpler API for SQL databases.
+Adjust the ratio of filled (█) to empty (░) blocks to represent activity level.
 
-### Headless UI Components
+## Customizing the Design
 
-[Radix UI](https://www.radix-ui.com/): A library of low-level, unstyled UI components for accessibility and customization.
-[Headless UI](https://headlessui.com/): Tailored for React and Vue, it provides accessible, unstyled components that work seamlessly with TailwindCSS.
-[React Aria](https://react-spectrum.adobe.com/react-aria/index.html): A suite of React hooks that helps you build accessible and robust user interfaces.
+### Colors
 
-## 🤝 Contributing
+Edit CSS variables in `style.css`:
 
-1. Fork the repository
-2. Create your feature branch (\`git checkout -b feature/amazing-feature\`)
-3. Commit your changes (\`git commit -m 'Add amazing feature'\`)
-4. Push to the branch (\`git push origin feature/amazing-feature\`)
-5. Open a Pull Request
+```css
+:root {
+    --bg-primary: #000000;      /* Background color */
+    --text-primary: #00ff00;    /* Primary text color */
+    --text-dim: #00aa00;        /* Dimmed text */
+    --text-inactive: #006600;   /* Inactive/label text */
+    --link-hover: #00ffff;      /* Link hover color */
+}
+```
 
-## ⚠️ Limitations and Known Issues
+### Typography
 
-- React 19 just released there could be dependency issues
-- Some features might be experimental, they are tested before benign added to the template but still be careful.
+The site uses monospace fonts. To change:
 
----
+```css
+body {
+    font-family: 'Courier New', 'Courier', monospace;
+}
+```
 
-<div align="center">
+Replace with your preferred monospace font stack.
 
-Made with ❤️ by Fernando Mendoza
+### Spacing
 
-[⬆ Back to top](#react-19--typescript--vite-template)
+Adjust the spacing unit:
 
-</div>
+```css
+:root {
+    --spacing-unit: 1rem;  /* Base spacing (16px default) */
+}
+```
+
+## Deployment
+
+This is a static site - upload all files to any web host:
+
+- **GitHub Pages**: Push to a repo, enable Pages
+- **Netlify**: Drag and drop the folder
+- **Neocities**: Upload via web interface
+- **Traditional hosting**: FTP/SFTP upload
+
+No build process required - just upload the files as-is.
+
+## Validation
+
+To validate your XHTML:
+- Visit https://validator.w3.org/
+- Upload your HTML files or enter the URL
+
+To validate your RSS feed:
+- Visit https://validator.w3.org/feed/
+- Upload feed.xml or enter the URL
+
+## Accessibility Features
+
+- Semantic HTML5 elements
+- Skip link for keyboard navigation
+- Proper heading hierarchy
+- Alt text support for images (when added)
+- High contrast support
+- Reduced motion support
+- Touch-friendly tap targets (44px minimum)
+
+## Browser Support
+
+Works in all modern browsers and degrades gracefully in older browsers:
+- Chrome/Edge (latest)
+- Firefox (latest)
+- Safari (latest)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+Works without CSS, works without JavaScript, works with screen readers.
+
+## License
+
+Content and code by Saguaro Prole.
