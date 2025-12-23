@@ -37,15 +37,13 @@
 
         <main id="main" role="main">
             <section class="about" aria-label="About">
-                <h2 class="visually-hidden">About</h2>
                 <p>Private case manager, web developer, author, and student. Interested in things pertaining to being human and being alive.</p>
             </section>
 
             <div class="ascii-line" aria-hidden="true">────────────────────────────────────────────────────────────────</div>
 
-            <section class="recent-posts" aria-labelledby="recent-posts-heading">
-                <h2 id="recent-posts-heading">Recent Posts</h2>
-                <p class="terminal-prompt" aria-hidden="true">$ ls -t ./posts</p>
+            <section class="recent-posts" aria-label="Recent posts">
+                <h2>$ ls -t ./posts</h2>
                 <ul>
                     <li><span class="date">[2024-12-20]</span> <a href="posts/welcome.html">Welcome to the Terminal</a></li>
                     <li><span class="date">[2024-12-15]</span> <a href="posts/on-being-human.html">On Being Human</a></li>
@@ -55,60 +53,58 @@
 
             <div class="ascii-line" aria-hidden="true">────────────────────────────────────────────────────────────────</div>
 
-            <section class="links" aria-labelledby="links-heading">
-                <h2 id="links-heading">Links</h2>
-                <p class="terminal-prompt" aria-hidden="true">$ links</p>
+            <section class="links" aria-label="Links">
+                <h2>$ links</h2>
                 
-                <nav aria-label="Support links">
-                    <h3>Support</h3>
+                <div class="link-category">
+                    <h3>&gt; Support</h3>
                     <ul>
                         <li><a href="https://throne.com/s4gu4r0" target="_blank" rel="noopener noreferrer">Wishlist</a></li>
                         <li><a href="#" target="_blank" rel="noopener noreferrer">CashApp</a></li>
                         <li><a href="#" target="_blank" rel="noopener noreferrer">Venmo</a></li>
                         <li><a href="#" target="_blank" rel="noopener noreferrer">PayPal</a></li>
                     </ul>
-                </nav>
+                </div>
 
-                <nav aria-label="Social media links">
-                    <h3>Social Media <span class="activity-note">(ranked by activity)</span></h3>
-                    <ul>
-                        <li><a href="#" target="_blank" rel="noopener noreferrer">TikTok</a></li>
-                        <li><a href="#" target="_blank" rel="noopener noreferrer">Mastodon</a></li>
-                        <li><a href="#" target="_blank" rel="noopener noreferrer">Bluesky</a></li>
+                <div class="link-category">
+                    <h3>&gt; Social Media</h3>
+                    <ul class="activity-list">
+                        <li><span class="activity-bar" aria-hidden="true">████████░░</span> <a href="#" target="_blank" rel="noopener noreferrer">TikTok</a> <span class="activity-label">[daily]</span></li>
+                        <li><span class="activity-bar" aria-hidden="true">██████░░░░</span> <a href="#" target="_blank" rel="noopener noreferrer">Mastodon</a> <span class="activity-label">[weekly]</span></li>
+                        <li><span class="activity-bar" aria-hidden="true">███░░░░░░░</span> <a href="#" target="_blank" rel="noopener noreferrer">Bluesky</a> <span class="activity-label">[monthly]</span></li>
                     </ul>
-                </nav>
+                </div>
 
-                <nav aria-label="Chat and community links">
-                    <h3>Chat / Communities <span class="activity-note">(ranked by activity)</span></h3>
-                    <ul>
-                        <li><a href="#" target="_blank" rel="noopener noreferrer">Discord</a></li>
-                        <li><a href="#" target="_blank" rel="noopener noreferrer">Revolt.chat</a></li>
+                <div class="link-category">
+                    <h3>&gt; Chat / Communities</h3>
+                    <ul class="activity-list">
+                        <li><span class="activity-bar" aria-hidden="true">████████░░</span> <a href="#" target="_blank" rel="noopener noreferrer">Discord</a> <span class="activity-label">[daily]</span></li>
+                        <li><span class="activity-bar" aria-hidden="true">████░░░░░░</span> <a href="#" target="_blank" rel="noopener noreferrer">Revolt.chat</a> <span class="activity-label">[weekly]</span></li>
                     </ul>
-                </nav>
+                </div>
 
-                <nav aria-label="Gaming links">
-                    <h3>Gaming</h3>
+                <div class="link-category">
+                    <h3>&gt; Gaming</h3>
                     <ul>
                         <li><a href="#" target="_blank" rel="noopener noreferrer">Steam</a></li>
                     </ul>
-                </nav>
+                </div>
 
-                <nav aria-label="Forum links">
-                    <h3>Forums</h3>
+                <div class="link-category">
+                    <h3>&gt; Forums</h3>
                     <ul>
                         <li><a href="https://talk.tiddlywiki.org/" target="_blank" rel="noopener noreferrer">TiddlyWiki Forum</a></li>
                     </ul>
-                </nav>
+                </div>
             </section>
 
             <div class="ascii-line" aria-hidden="true">────────────────────────────────────────────────────────────────</div>
 
-            <section class="rss" aria-labelledby="subscribe-heading">
-                <h2 id="subscribe-heading">Subscribe</h2>
-                <p class="terminal-prompt" aria-hidden="true">$ subscribe</p>
+            <section class="rss" aria-label="Subscribe">
+                <h2>$ subscribe</h2>
                 <p>
                     <a href="/feed.xml" class="rss-link" type="application/rss+xml">
-                        <span class="rss-icon" aria-hidden="true">[RSS]</span> Subscribe to RSS feed
+                        <span class="rss-icon" aria-hidden="true">[RSS]</span> Subscribe to feed
                     </a>
                 </p>
             </section>
