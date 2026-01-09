@@ -1,7 +1,21 @@
+.intraad-banner {
+    margin: 0;
+    padding: 0;
+    background: #2FFF3E;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+}
+
 .links--row {
     display: flex;
     gap: 0.15rem;
     flex-wrap: wrap;
     padding: 0;
     list-style: none;
+    align-items: center;
+}
+
+.links--row figcaption {
+    width: 18vw;
 }
