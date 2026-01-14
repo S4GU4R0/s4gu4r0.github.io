@@ -1,0 +1,3 @@
+- In the `assets/img` folder, you need to add an SVG image `icon_src.svg` and a PNG image `icon_src_512.png` with a resolution of 512x512 pixels. This is required to generate favicons and PWA icons in the `dist` folder.
+- To disable automatic favicon generation, comment out or remove the `generateFavicons()` call in the `runBuild` function of `build.js`.
+- To enable Progressive Web App (PWA) support, manually create an `icon-mask.png` image with a resolution of 512x512 pixels, which is not generated automatically, and place it in the `assets/img` folder before running the build script. A maskable icon can be created using a service like [maskable.app](https://maskable.app/editor).

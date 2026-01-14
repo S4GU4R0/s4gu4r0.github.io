@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <% articles.forEach(article => { %>
+    <url>
+      <loc><%= article.url %></loc>
+        <lastmod><%= article.lastmod_date %></lastmod>
+        <changefreq><%= article.name === 'index' ? "weekly" : "monthly" %></changefreq>
+      <priority><%= article.name === 'index' ? "1" : "0.8" %></priority>
+    </url>
+  <% }); %>
+</urlset>

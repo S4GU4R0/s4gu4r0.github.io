@@ -1,0 +1,73 @@
+{
+	"@context": "https://schema.org",
+	"@type": "WebPage",
+	"inLanguage": {
+		"@type": "Language",
+		"name": "English"
+	},
+	"@id": "<%= url %>",
+	"name": "<%= title %>",
+	"mainEntity": {
+		"@type": "BlogPosting",
+		"@id": "<%= url %>",
+		"mainEntityOfPage": "<%= url %>#main-content",
+		"datePublished": "<%= published_date %>",
+		"dateModified": "<%= lastmod_date %>",
+		"headline": "<%= h1 %>",
+		"description": "<%= description %>",
+		"keywords": "<%= keywords %>",
+		"author": {
+			"@type": "Person",
+			"name": "<%= origin_author || author %>",
+			"url": "https://example.com/about"
+		},
+		"publisher": {
+			"@type": "Person",
+			"url": "https://example.com/about",
+			"name": "<%= author %>",
+			"sameAs": "https://t.me/example"
+		},
+		"image": {
+			"@type": "ImageObject",
+			"url": "https://example.com/img/<%= soc_img.name %>",
+			"width": "1200",
+			"height": "630",
+			"isFamilyFriendly": "true"
+		}
+	},
+	"breadcrumb": {
+		"@type": "BreadcrumbList",
+		"name": "Main navigation",
+		<% if(name === 'index') { %>
+			"itemListElement": [
+			{
+				"@type": "ListItem",
+				"position": "1",
+				"item": {
+					"@id": "https://example.com/",
+					"name": "Main page"
+				}
+			}
+		]
+		<% } else { %>
+			"itemListElement": [
+			{
+				"@type": "ListItem",
+				"position": "1",
+				"item": {
+					"@id": "https://example.com/",
+					"name": "Main page"
+				}
+			},
+			{
+				"@type": "ListItem",
+				"position": "2",
+				"item": {
+					"@id": "<%= url %>",
+					"name": "<%= title %>"
+				}
+			}
+		]
+		<% } %>
+	}
+}

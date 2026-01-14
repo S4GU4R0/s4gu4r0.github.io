@@ -1,0 +1,101 @@
+[
+  {
+    "name": "index",
+    "url": "https://example.com/index.html",
+    "author": "Michael Harrison",
+    "origin_author": "",
+    "title": "Welcome to TechBlog - Your Source for Tech Insights",
+    "og_title": "TechBlog - Tech News and Tutorials",
+    "tag": "tech",
+    "description": "The latest news, tutorials, and insights about web development, programming, and technology trends.",
+    "keywords": "tech blog, web development, programming, tech news, tutorials",
+    "h1": "Discover the Latest in Technology",
+    "published_date": "2023-06-15T09:30:00+03:00",
+    "hr_published_date": "December 20, 2023",
+    "lastmod_date": "2023-12-20T14:45:22+03:00",
+    "isTechArticle": "",
+    "soc_img": {
+      "name": "homepage-banner.png",
+      "name_ppi2": "homepage-banner_2x.png",
+      "alt": "TechBlog homepage banner image"
+    }
+  },
+  {
+    "name": "article3",
+    "url": "https://techblog.example.com/articles/article3.html",
+    "author": "Sarah Jenkins",
+    "origin_author": "Robert Miller",
+    "title": "Top JavaScript Frameworks in 2023",
+    "og_title": "Best JavaScript Frameworks to Learn in 2023",
+    "tag": "javascript",
+    "description": "A comprehensive comparison of the most popular JavaScript frameworks in 2023, with recommendations for different project types.",
+    "keywords": "javascript, frameworks, react, vue, angular, svelte, frontend development",
+    "h1": "JavaScript Frameworks: The Ultimate Guide for 2023",
+    "proficiencyLevel": "Intermediate",
+    "dependencies": "JavaScript, Node.js",
+    "articleSection": "Code Optimization Techniques",
+    "learningResourceType": "Tutorial",
+    "about": "Code Performance",
+    "published_date": "2023-02-10T11:20:15+03:00",
+    "hr_published_date": "February 10, 2023",
+    "lastmod_date": "2023-05-22T16:30:45+03:00",
+    "isTechArticle": "true",
+    "soc_img": {
+      "name": "js-frameworks.png",
+      "name_ppi2": "js-frameworks_2x.png",
+      "alt": "JavaScript framework logos comparison"
+    }
+  },
+  {
+    "name": "article2",
+    "url": "https://techblog.example.com/articles/article2.html",
+    "author": "James Wilson",
+    "origin_author": "",
+    "title": "5 Effective Cloud Migration Strategies for Enterprises",
+    "og_title": "Cloud Migration: Best Practices for Enterprise Systems",
+    "tag": "cloud",
+    "description": "Learn about proven cloud migration strategies that can help enterprises move their systems efficiently while minimizing risks.",
+    "keywords": "cloud migration, enterprise, aws, azure, google cloud, infrastructure",
+    "h1": "Enterprise Cloud Migration: 5 Strategies for Success",
+    "proficiencyLevel": "Intermediate",
+    "dependencies": "JavaScript, Node.js",
+    "articleSection": "Code Optimization Techniques",
+    "learningResourceType": "Tutorial",
+    "about": "Code Performance",
+    "published_date": "2023-03-18T10:15:30+03:00",
+    "hr_published_date": "March 18, 2023",
+    "lastmod_date": "2023-08-05T13:20:10+03:00",
+    "isTechArticle": "true",
+    "soc_img": {
+      "name": "cloud-migration.png",
+      "name_ppi2": "cloud-migration_2x.png",
+      "alt": "Cloud migration diagram showing steps and strategies"
+    }
+  },
+  {
+    "name": "article1",
+    "url": "https://techblog.example.com/articles/article1.html",
+    "author": "Emily Chen",
+    "origin_author": "",
+    "title": "Machine Learning for Beginners: A Step-by-Step Guide",
+    "og_title": "Getting Started with Machine Learning: Complete Beginner's Guide",
+    "tag": "machine-learning",
+    "description": "A comprehensive introduction to machine learning concepts, tools, and techniques for absolute beginners.",
+    "keywords": "machine learning, AI, beginners guide, python, data science, ML algorithms",
+    "h1": "Machine Learning Fundamentals: Where to Start Your Journey",
+    "proficiencyLevel": "Intermediate",
+    "dependencies": "JavaScript, Node.js",
+    "articleSection": "Code Optimization Techniques",
+    "learningResourceType": "Tutorial",
+    "about": "Code Performance",
+    "published_date": "2023-04-05T08:45:20+03:00",
+    "hr_published_date": "April 5, 2023 year",
+    "lastmod_date": "2023-09-12T15:10:30+03:00",
+    "isTechArticle": "true",
+    "soc_img": {
+      "name": "ml-beginners.png",
+      "name_ppi2": "ml-beginners_2x.png",
+      "alt": "Machine learning concept visualization for beginners"
+    }
+  }
+]

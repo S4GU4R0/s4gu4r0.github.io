@@ -1,171 +1,236 @@
-# S4GU4R0.wtf
+# EJS Blog
 
-A minimal, terminal-aesthetic personal website built with XHTML, CSS, and following the rule of least power.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
 
-## Philosophy
+[![Support me on Boosty](https://img.shields.io/badge/Boosty-Support%20me-%23f15f2c?style=for-the-badge)](https://boosty.to/theEvilGrinch/donate)
+[![Donate](https://img.shields.io/badge/Donate-%23702ff4?style=for-the-badge)](https://yoomoney.ru/to/410016288289737)
 
-- **Rule of Least Power**: Uses the simplest technology that works (XHTML for structure, CSS for presentation)
-- **Mobile-First**: Designed for mobile devices first, scales up gracefully
-- **Terminal Aesthetic**: Green text on black background, monospace fonts, ASCII art decorations
-- **Accessibility**: Semantic HTML, skip links, proper heading hierarchy, works without CSS/JS
-- **No JavaScript**: Site is fully functional without any JavaScript
+Modern, fast-loading blog platform powered by EJS templates. Features built-in search, RSS feed, and sitemap generation, automatic image optimization, favicon generation, cookie consent dialog, color theme management, and more. Built with modern web standards, responsive design, and SEO best practices. Deploy anywhere as static site with minimal configuration.
 
-## File Structure
+## Table of Contents
+
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Favicon Generation](#favicon-generation)
+  - [Article Publishing](#article-publishing)
+  - [Required Customization](#required-customization)
+  - [Build for Production](#build-for-production)
+- [Development](#development)
+  - [Dependencies](#dependencies)
+  - [Run Development Server](#run-development-server)
+  - [Available Scripts](#available-scripts)
+  - [Browser Launch Scripts](#browser-launch-scripts)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Features
+
+- **Lightweight & Performant** - Primarily built with vanilla JavaScript and modern web standards, with minimal framework dependencies only where they provide significant value (like PageFind for search functionality)
+- **Blazing Fast** - Leverages ESBuild for near-instantaneous builds and optimized production output
+- **Modern Styling** - Uses SCSS with helpful mixins for responsive typography and media queries
+- **SEO Optimized** - Built with semantic HTML5, meta tags, and Schema.org structured data for technical articles and web pages
+- **Responsive Design** - Flexible layouts using CSS Flexbox with responsive typography via `flex-text` mixin
+- **Asset Optimization** - Automatic favicon generation, image optimization, and minification of HTML, CSS, and JavaScript
+- **Smart Development Server** - Watches for file changes and triggers incremental builds for modified assets (EJS, SASS, JS) with automatic browser reload
+- **Cookie Management** - Basic cookie consent dialog for tracking user preferences
+- **Search Functionality** - Client-side search implementation with PageFind
+- **RSS & Sitemap** - Automatic generation of RSS feed and sitemap.xml
+
+## Project Structure
 
 ```
-/
-├── index.html          # Homepage with post list and links
-├── style.css           # All styles (terminal aesthetic)
-├── feed.xml           # RSS feed
-├── posts/
-│   └── welcome.html   # Sample blog post
-└── README.md          # This file
+.
+├── assets/                              # Static assets
+│   ├── fonts/                           # Web fonts
+│   ├── img/                             # Global images
+│   ├── .htaccess                        # Apache server configuration
+│   ├── 404.html                         # Custom 404 error page
+│   ├── humans.txt                       # Information about the site's developers
+│   ├── manifest.webmanifest             # Web app manifest
+│   └── robots.txt                       # Instructions for web crawlers
+├── build-system/                        # Build configuration and scripts
+│   ├── build.config.js                  # Central build configuration
+│   ├── build.js                         # Production build script
+│   ├── open-incognito-chromium.zsh      # Open Chromium in incognito mode
+│   ├── open-incognito-firefox.zsh       # Open Firefox in private browsing mode
+│   └── watch.js                         # Development server script
+└── src/                                 # Source files
+    ├── articles/                        # Blog articles in HTML format
+    ├── scripts/                         # JavaScript modules (ES modules)
+    │   ├── index.mjs                    # Main JavaScript entry point
+    │   ├── set-color-theme.mjs          # Theme management
+    │   ├── show-cookies-dialog.mjs      # Cookie consent dialog
+    │   └── update-copyright-year.mjs    # Dynamic copyright year in footer
+    ├── styles/                          # SCSS styles and CSS
+    │   ├── _custom.scss                 # Custom styles and overrides
+    │   ├── _fonts.scss                  # Font face declarations
+    │   ├── _template-styles.scss        # Template-specific styles
+    │   ├── _search.scss                 # Styles for PageFind search 
+    │   ├── core/                        # Core SCSS utilities
+    │   │   ├── _index.scss              # Core utilities entry point
+    │   │   ├── _mixins.scss             # SCSS mixins and functions
+    │   │   └── _variables.scss          # Global SCSS variables
+    │   ├── main.scss                    # Main stylesheet entry point
+    │   └── reset.css                    # CSS reset for consistent rendering
+    └── template/                        # EJS templates and layouts
+        ├── _aside-left.ejs              # Left sidebar template
+        ├── _aside-right.ejs             # Right sidebar template
+        ├── _footer.ejs                  # Footer template
+        ├── _head.ejs                    # Head section template
+        ├── _header.ejs                  # Header template
+        ├── _main.ejs                    # Main content wrapper
+        ├── articles.json                # Articles metadata
+        ├── index.ejs                    # Main index template
+        ├── rss.ejs                      # RSS feed template
+        ├── sitemap.ejs                  # Sitemap template
+        ├── tech-article-microdata.json  # Schema.org structured data for tech articles
+        └── webpage-microdata.json       # Schema.org structured data for web pages
+├── eslint.config.js                     # ESLint configuration
+├── package.json                         # Project configuration and dependencies
+├── package-lock.json                    # Lock file for dependencies
+├── .gitignore                           # Git ignore rules
+├── .stylelintrc.json                    # Stylelint configuration
+└── LICENSE                              # MIT License
 ```
 
-## Adding a New Post
+## Getting Started
 
-### 1. Create the HTML file
+### Prerequisites
 
-Copy `posts/welcome.html` and modify it:
+- Node.js 18+ (LTS recommended)
+- npm 9+
+- git 2.28.0+
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/andmitr/static-blog-generator.git
+   cd static-blog-generator
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+### Favicon Generation
+
+Build script automatically generates favicons in multiple formats from source files.
+
+To use this feature, add these files to `assets/img/`:
+- `icon_src.svg` - Vector source for SVG favicon
+- `icon_src_512.png` (512x512px) - Source for PNG favicons
+
+To disable automatic favicon generation, comment out or remove the `generateFavicons()` call in the `runBuild` function of `build.js`.
+
+To enable Progressive Web App (PWA) support, manually create an `icon-mask.png` image with a resolution of 512x512 pixels, which is not generated automatically, and place it in the `assets/img` folder before running the build script. A maskable icon can be created using a service like [maskable.app](https://maskable.app/editor).
+
+Build process will generate:
+- `ICO` format for legacy browsers
+- `SVG` favicon for modern browsers
+- `PNG` favicons (16x16, 32x32, 48x48)
+- Apple Touch Icon 
+- Web App manifest icons
+
+### Article Publishing
+
+1. Create article content in HTML format in `src/articles/`. It will be used in `src/template/_main.ejs` and will become content of `<main>` tag.
+2. Add article information to `src/template/articles.json`. Name property must match HTML filename in `src/articles/` without extension.
+
+### Required Customization
+
+Before using this template, make sure to:
+- Remove all template placeholders and demo content 
+- Replace all `<!-- TODO -->` comments with actual content 
+- Update metadata in `package.json`, `assets/manifest.webmanifest`, and template files
+- Replace the favicon and other assets in the assets directory
+
+### Build for Production
+
+To create an optimized production build:
 
 ```bash
-cp posts/welcome.html posts/your-post-name.html
+npm run build
 ```
 
-Update:
-- `<title>` tag
-- `<meta>` description
-- `og:title`, `og:description`, `og:url`
-- Post date in `[YYYY-MM-DD]` format
-- Post title in `<h2>`
-- Post content in the `.post-content` div
+Command will:
+1. Clean `dist` directory
+2. Generate HTML files from EJS templates with minification
+3. Generate RSS feed and sitemap
+4. Compile and minify SCSS to CSS (no source maps)
+5. Bundle and minify JavaScript with ESBuild (ES modules format)
+6. Optimize images (75% quality for JPEG, PNG, WebP, 70% quality for AVIF)
+7. Generate favicons in multiple formats
+8. Copy static assets to `dist` directory
+9. Generate PageFind search index
 
-### 2. Add to index.html
+## Development
 
-In `index.html`, add a new list item to the "Recent Posts" section:
+### Dependencies
 
-```html
-<li><span class="date">[2024-12-20]</span> <a href="posts/your-post-name.html">Your Post Title</a></li>
+- `@stylistic/stylelint-plugin`: Stylelint plugin for styling rules
+- `browser-sync`: Development server with live reload
+- `ejs`: Template engine for generating HTML
+- `esbuild`: JavaScript bundler and minifier
+- `eslint`: JavaScript linter
+- `fs-extra`: File system operations
+- `gh-pages`: Deployment to GitHub Pages
+- `globals`: Global variables for ESLint
+- `html-minifier-terser`: HTML minification
+- `imagemin`: Image optimization
+- `imagemin-pngquant`: PNG optimization
+- `pagefind`: Full-text search
+- `png2icons`: Favicon generation
+- `sass`: CSS preprocessor
+- `sharp`: Image processing
+- `stylelint`: CSS/SCSS linter
+- `svgo`: SVG optimization
+
+### Run Development Server
+
+Start the development server with file watching:
+
+```bash
+npm run dev
 ```
 
-Keep posts in reverse chronological order (newest first).
+Command will:
+1. Start development server at `http://localhost:3000`
+2. Watch for changes in source files and trigger appropriate build tasks
+3. Automatically reload browser when files change
 
-### 3. Update feed.xml
+### Available Scripts
 
-Add a new `<item>` to the RSS feed (at the top, before other items):
+- `npm run build` - Create an optimized production build in the `dist` directory
+- `npm run dev` - Start development server with file watching
+- `npm run clean` - Remove the `dist` directory
+- `npm run stylelint:fix` - Fix auto-fixable style issues
+- `npm run eslint:fix` - Fix auto-fixable JavaScript issues
+- `npm run deploy` - Deploy to GitHub Pages (requires repository setup)
+- `npm run predeploy` - Run before deployment to ensure clean build
 
-```xml
-<item>
-  <title>Your Post Title</title>
-  <link>https://s4gu4r0.wtf/posts/your-post-name.html</link>
-  <description>Brief description of your post.</description>
-  <pubDate>Fri, 20 Dec 2024 12:00:00 GMT</pubDate>
-  <guid>https://s4gu4r0.wtf/posts/your-post-name.html</guid>
-</item>
-```
+### Browser Launch Scripts
 
-Update `<lastBuildDate>` in the feed to match the newest post date.
+Build system includes two shell scripts for launching browsers in incognito/private mode:
+- `open-incognito-chromium.zsh` — launches Chromium-based browsers in incognito mode
+- `open-incognito-firefox.zsh` — launches Firefox in private browsing mode
 
-## Updating Links
-
-### Social Media Links
-
-Edit the "External Links" section in `index.html`. Links are organized by category:
-
-- **Support**: Wishlist, payment platforms
-- **Social Media**: Ranked by activity (most to least)
-- **Chat/Communities**: Ranked by activity
-- **Gaming**: Gaming platforms
-- **Forums**: Forum links
-
-### Activity Indicators
-
-The activity bars use block characters:
-- `████████░░` = 8/10 (daily/very active)
-- `██████░░░░` = 6/10 (weekly/active)
-- `███░░░░░░░` = 3/10 (monthly/occasional)
-
-Adjust the ratio of filled (█) to empty (░) blocks to represent activity level.
-
-## Customizing the Design
-
-### Colors
-
-Edit CSS variables in `style.css`:
-
-```css
-:root {
-    --bg-primary: #000000;      /* Background color */
-    --text-primary: #00ff00;    /* Primary text color */
-    --text-dim: #00aa00;        /* Dimmed text */
-    --text-inactive: #006600;   /* Inactive/label text */
-    --link-hover: #00ffff;      /* Link hover color */
+By default, `firefox-developer-edition` browser is used. Change browser by modifying `browser` option in `build.config.js`:
+```js
+browserSync: {
+  // browser: 'firefox-developer-edition', // default browser
+  // browser: path.join(__dirname, 'open-incognito-chromium.zsh'),
+  browser: path.join(__dirname, 'open-incognito-firefox.zsh')
 }
 ```
 
-### Typography
+## Contributing
 
-The site uses monospace fonts. To change:
-
-```css
-body {
-    font-family: 'Courier New', 'Courier', monospace;
-}
-```
-
-Replace with your preferred monospace font stack.
-
-### Spacing
-
-Adjust the spacing unit:
-
-```css
-:root {
-    --spacing-unit: 1rem;  /* Base spacing (16px default) */
-}
-```
-
-## Deployment
-
-This is a static site - upload all files to any web host:
-
-- **GitHub Pages**: Push to a repo, enable Pages
-- **Netlify**: Drag and drop the folder
-- **Neocities**: Upload via web interface
-- **Traditional hosting**: FTP/SFTP upload
-
-No build process required - just upload the files as-is.
-
-## Validation
-
-To validate your XHTML:
-- Visit https://validator.w3.org/
-- Upload your HTML files or enter the URL
-
-To validate your RSS feed:
-- Visit https://validator.w3.org/feed/
-- Upload feed.xml or enter the URL
-
-## Accessibility Features
-
-- Semantic HTML5 elements
-- Skip link for keyboard navigation
-- Proper heading hierarchy
-- Alt text support for images (when added)
-- High contrast support
-- Reduced motion support
-- Touch-friendly tap targets (44px minimum)
-
-## Browser Support
-
-Works in all modern browsers and degrades gracefully in older browsers:
-- Chrome/Edge (latest)
-- Firefox (latest)
-- Safari (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
-Works without CSS, works without JavaScript, works with screen readers.
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
 
-Content and code by Saguaro Prole.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

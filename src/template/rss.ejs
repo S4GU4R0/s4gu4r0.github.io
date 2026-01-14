@@ -1,0 +1,24 @@
+<rss version="2.0">
+  <channel>
+    <title>My Blog</title>
+    <link>https://site.ru/</link>
+    <description>Blog description</description>
+    <language>en</language>
+    <pubDate><%= new Date(articles[0].published_date).toUTCString() %></pubDate>
+    <lastBuildDate><%= new Date().toUTCString() %></lastBuildDate>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>Custom EJS Static Site Generator</generator>
+    <managingEditor>h6k2otpy7@mozmail.com (Andrew Dmitriev)</managingEditor>
+    <% articles.forEach(article => { %>
+      <item>
+        <title><%= article.title || article.og_title %></title>
+        <link><%= article.url %></link>
+        <guid isPermaLink="true"><%= article.url %></guid>
+        <description><%= article.description %></description>
+        <pubDate><%= new Date(article.published_date).toUTCString() %></pubDate>
+        <category><%= article.tag %></category>
+        <author>Andrew Dmitriev</author>
+      </item>
+    <% }) %>
+  </channel>
+</rss>

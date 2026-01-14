@@ -1,0 +1,24 @@
+/* TEAM */
+Name: Andrew Dmitriev
+GitHub: @theEvilGrinch
+Role: Developer
+Location: Velikiy Novgorod, Russia
+Contact: h6k2otpy7@mozmail.com
+
+/* THANKS */
+- Mom, Dad and ArchLinux
+
+/* TECHNOLOGY */
+- HTML
+- CSS
+- Sass
+- JavaScript
+- Node.js
+- Ejs
+- esbuild
+
+/* SITE */
+Last update:2025/07/04
+Language: English
+Doctype:HTML5
+IDE: Webstorm, Zed, Figma, Jira
