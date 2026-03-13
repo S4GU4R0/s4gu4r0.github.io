@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Saguaro Prole</title>
-    <link>https://S4GU4R0.github.io</link>
-    <description>Writing, notes, and things I make.</description>
+    <link>https://s4gu4r0.github.io</link>
+    <description>My online house.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 13 Mar 2026 04:41:37 +0000</lastBuildDate>
-    <atom:link href="https://S4GU4R0.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Fri, 13 Mar 2026 05:31:30 +0000</lastBuildDate>
+    <atom:link href="https://s4gu4r0.github.io/rss.xml" rel="self" type="application/rss+xml"/>
 
   </channel>
 </rss>

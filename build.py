@@ -5,16 +5,19 @@ build.py — Saguaro Prole static site builder
 Usage:
     python build.py
 
-Reads content fragments from _posts/<category>/*.html,
-wraps them in the base template, and writes built pages to
-<category>/<slug>.html at the repo root.
+_posts/ structure mirrors the URL structure:
 
-Also generates rss.xml at the repo root from all published posts.
+    _posts/
+      desk/
+        writing/   → built to desk/writing/<slug>.html
+        notes/     → built to desk/notes/<slug>.html
+      workshop/    → built to workshop/<slug>.html
+      living-room/ → built to living-room/<slug>.html
 
-_drafts/ is never read or built. Move a file from _drafts/ to
-_posts/ when it's ready to publish.
+_drafts/ mirrors _posts/ and is never read or built.
+Move a file from _drafts/ to _posts/ when ready to publish.
 
-Content fragments must start with an HTML comment block:
+Fragments must open with a frontmatter comment:
 <!--
 title: Your Post Title
 date: 2026-03-01
@@ -30,19 +33,31 @@ from xml.sax.saxutils import escape
 # ── Config ────────────────────────────────────────────────────────────────────
 
 POSTS_DIR   = Path("_posts")
-DRAFTS_DIR  = Path("_drafts")   # never touched by this script
 TEMPLATE    = Path("templates/_base.html")
 DONATION    = Path("templates/_donation.html")
 OUTPUT_ROOT = Path(".")
 
-SITE_URL    = "https://S4GU4R0.github.io"  # update to your actual URL
+SITE_URL    = "https://s4gu4r0.github.io"
 SITE_TITLE  = "Saguaro Prole"
-SITE_DESC   = "Writing, notes, and things I make."
+SITE_DESC   = "My online house."
 
-# Categories that get a donation nudge
+# Categories that get a donation nudge (matched against the immediate parent dir)
 DONATION_CATEGORIES = {"writing"}
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
+
+def find_fragments(root: Path):
+    """
+    Yield (fragment_path, relative_out_path) for every .html file under root,
+    walking up to two directory levels deep.
+
+    _posts/desk/writing/my-post.html → out: desk/writing/my-post.html
+    _posts/workshop/my-project.html  → out: workshop/my-project.html
+    """
+    for path in sorted(root.rglob("*.html")):
+        rel = path.relative_to(root)
+        yield path, rel
+
 
 def parse_fragment(path: Path) -> dict:
     """Extract frontmatter comment and body from a content fragment."""
@@ -59,30 +74,38 @@ def parse_fragment(path: Path) -> dict:
     else:
         content = raw.strip()
 
+    # category = immediate parent dir name (e.g. "writing", "notes", "workshop")
+    category = path.parent.name
+
     return {
         "title":    meta.get("title", path.stem.replace("-", " ").title()),
         "date":     meta.get("date", ""),
-        "category": meta.get("category", path.parent.name),
+        "category": meta.get("category", category),
         "content":  content,
         "slug":     path.stem,
     }
 
 
-def build_page(fragment: dict, base_template: str, donation_block: str) -> str:
+def build_page(fragment: dict, rel_out: Path, base_template: str, donation_block: str) -> str:
     """Substitute template placeholders with fragment data."""
-    extra = donation_block if fragment["category"] in DONATION_CATEGORIES else ""
+    category     = fragment["category"]
+    extra        = donation_block if category in DONATION_CATEGORIES else ""
+
+    # Compute root-relative path depth for nav hrefs (e.g. desk/writing → ../../)
+    depth   = len(rel_out.parts) - 1
+    root_prefix = "../" * depth if depth else ""
 
     page = base_template
-    page = page.replace("{{title}}",    fragment["title"])
-    page = page.replace("{{date}}",     fragment["date"])
-    page = page.replace("{{category}}", fragment["category"])
-    page = page.replace("{{content}}",  fragment["content"])
-    page = page.replace("{{extra}}",    extra)
+    page = page.replace("{{title}}",       fragment["title"])
+    page = page.replace("{{date}}",        fragment["date"])
+    page = page.replace("{{category}}",    category)
+    page = page.replace("{{content}}",     fragment["content"])
+    page = page.replace("{{extra}}",       extra)
+    page = page.replace("{{root}}",        root_prefix)
     return page
 
 
 def parse_date(date_str: str):
-    """Try to parse a date string. Returns a datetime or None."""
     for fmt in ("%Y-%m-%d", "%b %Y", "%B %Y"):
         try:
             return datetime.strptime(date_str.strip(), fmt).replace(tzinfo=timezone.utc)
@@ -96,17 +119,13 @@ def rfc822(dt: datetime) -> str:
 
 
 def build_rss(fragments: list) -> str:
-    """Generate rss.xml content from a list of parsed fragments."""
-
-    # Only include posts with a parseable date, sorted newest first
     dated = [f for f in fragments if parse_date(f["date"])]
     dated.sort(key=lambda f: parse_date(f["date"]), reverse=True)
-
     now = rfc822(datetime.now(timezone.utc))
 
     items = []
     for f in dated:
-        url  = f"{SITE_URL}/{f['category']}/{f['slug']}.html"
+        url  = f"{SITE_URL}/{f['rel_out'].as_posix()}"
         dt   = rfc822(parse_date(f["date"]))
         desc = re.sub(r"<[^>]+>", "", f["content"])[:280].strip()
         if len(desc) == 280:
@@ -121,8 +140,6 @@ def build_rss(fragments: list) -> str:
       <description>{escape(desc)}</description>
     </item>""")
 
-    items_xml = "\n".join(items)
-
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
@@ -132,7 +149,7 @@ def build_rss(fragments: list) -> str:
     <language>en-us</language>
     <lastBuildDate>{now}</lastBuildDate>
     <atom:link href="{SITE_URL}/rss.xml" rel="self" type="application/rss+xml"/>
-{items_xml}
+{chr(10).join(items)}
   </channel>
 </rss>
 """
@@ -148,30 +165,27 @@ def build_all():
     errors    = []
     all_frags = []
 
-    for category_dir in sorted(POSTS_DIR.iterdir()):
-        if not category_dir.is_dir():
-            continue
+    for frag_path, rel_out in find_fragments(POSTS_DIR):
+        try:
+            fragment           = parse_fragment(frag_path)
+            fragment["rel_out"] = rel_out
 
-        category = category_dir.name
-        out_dir  = OUTPUT_ROOT / category
-        out_dir.mkdir(exist_ok=True)
+            out_path = OUTPUT_ROOT / rel_out
+            out_path.parent.mkdir(parents=True, exist_ok=True)
 
-        for fragment_path in sorted(category_dir.glob("*.html")):
-            try:
-                fragment = parse_fragment(fragment_path)
-                page     = build_page(fragment, base_template, donation_block)
-                out_path = out_dir / fragment_path.name
-                out_path.write_text(page, encoding="utf-8")
-                all_frags.append(fragment)
-                print(f"  ✓  {category}/{fragment_path.name}")
-                built += 1
-            except Exception as e:
-                msg = f"  ✗  {fragment_path} — {e}"
-                print(msg)
-                errors.append(msg)
+            page = build_page(fragment, rel_out, base_template, donation_block)
+            out_path.write_text(page, encoding="utf-8")
+
+            all_frags.append(fragment)
+            print(f"  ✓  {rel_out}")
+            built += 1
+        except Exception as e:
+            msg = f"  ✗  {frag_path} — {e}"
+            print(msg)
+            errors.append(msg)
 
     # RSS
-    rss = build_rss(all_frags)
+    rss      = build_rss(all_frags)
     rss_path = OUTPUT_ROOT / "rss.xml"
     rss_path.write_text(rss, encoding="utf-8")
     rss_count = rss.count("<item>")

@@ -58,6 +58,15 @@
       letter-spacing: 0.03em;
     }
 
+    .status {
+      margin-top: 0.35rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--warm);
+      line-height: 1.6;
+      letter-spacing: 0.02em;
+    }
+
     nav {
       margin-top: 1.25rem;
       display: flex;
@@ -215,27 +224,18 @@
 
   <header>
     <div class="site-name">Saguaro <span>Prole</span></div>
-    <p class="tagline">// writing, notes, things i make — no schedule, no brand, no promises</p>
+    <p class="tagline">// my online house</p>
+    <p class="status">status: lorem ipsum dolor sit amet, consectetur adipiscing.</p>
     <nav>
-      <a href="#now">now</a>
-      <a href="#writing">writing</a>
-      <a href="#notes">notes</a>
-      <a href="#making">making</a>
-      <a href="#likes">likes</a>
-      <a href="#about">about</a>
+      <a href="#desk">desk</a>
+      <a href="#workshop">workshop</a>
+      <a href="#living-room">living room</a>
+      <a href="#front-door">front door</a>
     </nav>
   </header>
 
-  <section id="now">
-    <div class="section-label">now</div>
-    <div class="prose">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu <strong>fugiat nulla pariatur.</strong> Honestly, fine.</p>
-    </div>
-  </section>
-
-  <section id="writing">
-    <div class="section-label">writing</div>
+  <section id="desk">
+    <div class="section-label">desk / writing</div>
 
     <a class="entry" href="#">
       <span class="entry-title">Lorem ipsum dolor sit amet consectetur</span>
@@ -259,10 +259,8 @@
       <span class="entry-title">Nemo enim ipsam voluptatem quia voluptas</span>
       <span class="entry-meta">Nov 2025</span>
     </a>
-  </section>
 
-  <section id="notes">
-    <div class="section-label">notes</div>
+    <div class="section-label" style="margin-top:1.75rem;">desk / notes</div>
 
     <div class="entry">
       <span class="entry-title">Neque porro quisquam est qui dolorem</span>
@@ -282,8 +280,8 @@
     </div>
   </section>
 
-  <section id="making">
-    <div class="section-label">making</div>
+  <section id="workshop">
+    <div class="section-label">workshop</div>
 
     <a class="entry" href="#">
       <span class="entry-title">Lorem Ipsum Generator</span>
@@ -304,8 +302,8 @@
     </a>
   </section>
 
-  <section id="likes">
-    <div class="section-label">things i like</div>
+  <section id="living-room">
+    <div class="section-label">living room</div>
     <div class="likes-grid">
       <span class="like-pill">lorem ipsum</span>
       <span class="like-pill">dolor sit amet</span>
@@ -322,8 +320,8 @@
     </div>
   </section>
 
-  <section id="about">
-    <div class="section-label">about</div>
+  <section id="front-door">
+    <div class="section-label">front door</div>
     <div class="prose">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
       <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
