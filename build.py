@@ -35,7 +35,7 @@ TEMPLATE    = Path("templates/_base.html")
 DONATION    = Path("templates/_donation.html")
 OUTPUT_ROOT = Path(".")
 
-SITE_URL    = "https://saguaroprole.github.io"  # update to your actual URL
+SITE_URL    = "https://S4GU4R0.github.io"  # update to your actual URL
 SITE_TITLE  = "Saguaro Prole"
 SITE_DESC   = "Writing, notes, and things I make."
 
