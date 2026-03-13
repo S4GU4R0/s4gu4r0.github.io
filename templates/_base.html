@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{title}} — Saguaro Prole</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=DM+Mono:wght@400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:   #1a1710;
+      --ink:  #f2ece0;
+      --muted:#a09080;
+      --rule: #332e22;
+      --gold: #d4aa50;
+      --warm: #c8b08a;
+      --rust: #c05a38;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 17px; background: var(--bg); color: var(--ink); }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 7rem;
+    }
+
+    a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+    a:hover { color: var(--ink); }
+
+    /* ── Site header ── */
+    .site-header {
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 3px double var(--rule);
+    }
+
+    .site-name {
+      font-family: 'Special Elite', monospace;
+      font-size: 1.5rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .site-name span { color: var(--gold); }
+
+    .site-nav {
+      margin-top: 0.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.15rem 0;
+    }
+
+    .site-nav a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.6rem;
+      border: 1px solid transparent;
+      transition: color 0.1s, border-color 0.1s;
+    }
+
+    .site-nav a:hover {
+      color: var(--gold);
+      border-color: var(--rule);
+    }
+
+    /* ── Post header ── */
+    .post-header {
+      margin-bottom: 2rem;
+    }
+
+    .post-category {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .post-category::before { content: '§ '; color: var(--gold); }
+
+    .post-title {
+      font-family: 'Special Elite', monospace;
+      font-size: 1.9rem;
+      line-height: 1.2;
+      color: var(--ink);
+    }
+
+    .post-date {
+      margin-top: 0.5rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    /* ── Post body ── */
+    .post-body {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--warm);
+    }
+
+    .post-body p { margin-bottom: 1.2rem; }
+    .post-body h2 {
+      font-family: 'Special Elite', monospace;
+      font-size: 1.2rem;
+      color: var(--ink);
+      margin: 2rem 0 0.75rem;
+    }
+    .post-body h3 {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--warm);
+      letter-spacing: 0.08em;
+      margin: 1.5rem 0 0.5rem;
+    }
+    .post-body strong { color: var(--ink); }
+    .post-body em { color: var(--ink); font-style: italic; }
+    .post-body blockquote {
+      border-left: 2px solid var(--gold);
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .post-body code {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.85em;
+      background: var(--rule);
+      padding: 0.1em 0.35em;
+      border-radius: 2px;
+      color: var(--gold);
+    }
+    .post-body pre {
+      background: var(--rule);
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-left: 2px dashed var(--muted);
+    }
+    .post-body pre code {
+      background: none;
+      padding: 0;
+    }
+    .post-body hr {
+      border: none;
+      border-top: 1px dashed var(--rule);
+      margin: 2rem 0;
+    }
+
+    /* ── Footer ── */
+    .site-footer {
+      margin-top: 4rem;
+      padding-top: 1.25rem;
+      border-top: 3px double var(--rule);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .site-footer a { color: var(--muted); text-decoration: none; }
+    .site-footer a:hover { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="site-name" href="/">Saguaro <span>Prole</span></a>
+    <nav class="site-nav">
+      <a href="/#now">now</a>
+      <a href="/#writing">writing</a>
+      <a href="/#notes">notes</a>
+      <a href="/#making">making</a>
+      <a href="/#likes">likes</a>
+      <a href="/#about">about</a>
+    </nav>
+  </header>
+
+  <article>
+    <div class="post-header">
+      <div class="post-category">{{category}}</div>
+      <h1 class="post-title">{{title}}</h1>
+      <div class="post-date">{{date}}</div>
+    </div>
+
+    <div class="post-body">
+      {{content}}
+    </div>
+  </article>
+
+  {{extra}}
+
+  <footer class="site-footer">
+    <span>saguaro prole &mdash; made while intoxicated with frustration</span>
+    <a href="/rss.xml">rss</a>
+  </footer>
+
+</body>
+</html>

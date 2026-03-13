@@ -1,149 +1,342 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#000000" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saguaro Prole</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=DM+Mono:wght@400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
 
-    <title>S4GU4R0.wtf</title>
-    <meta name="description"
-        content="Saguaro Prole: Private case manager, web developer, author, and student. Interested in things pertaining to being human and being alive." />
-    <meta name="author" content="Saguaro Prole" />
+  <style>
+    :root {
+      --bg:      #1a1710;
+      --ink:     #f2ece0;
+      --muted:   #a09080;
+      --rule:    #332e22;
+      --gold:    #d4aa50;
+      --warm:    #c8b08a;
+      --rust:    #c05a38;
+    }
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="S4GU4R0.wtf" />
-    <meta property="og:description"
-        content="Saguaro Prole: Private case manager, web developer, author, and student." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://s4gu4r0.wtf" />
-    <meta property="og:image" content="https://s4gu4r0.wtf/og-image.png" />
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="S4GU4R0.wtf" />
-    <meta name="twitter:description"
-        content="Saguaro Prole: Private case manager, web developer, author, and student." />
+    html { font-size: 17px; background: var(--bg); color: var(--ink); }
 
-    <!-- RSS -->
-    <link rel="alternate" type="application/rss+xml" title="S4GU4R0.wtf RSS Feed" href="/feed.xml" />
+    body {
+      font-family: 'Lora', Georgia, serif;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 7rem;
+    }
 
-    <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="normalize.css" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+    /* ── Header ── */
+    header {
+      margin-bottom: 3.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 3px double var(--rule);
+    }
 
+    .site-name {
+      font-family: 'Special Elite', monospace;
+      font-size: 2.6rem;
+      line-height: 1;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+
+    .site-name span {
+      color: var(--gold);
+    }
+
+    .tagline {
+      margin-top: 0.6rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.6;
+      letter-spacing: 0.03em;
+    }
+
+    nav {
+      margin-top: 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.15rem 0;
+    }
+
+    nav a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.6rem;
+      border: 1px solid transparent;
+      transition: color 0.1s, border-color 0.1s;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+      border-color: var(--rule);
+    }
+
+    /* ── Sections ── */
+    section {
+      margin-bottom: 3rem;
+    }
+
+    .section-label {
+      font-family: 'Special Elite', monospace;
+      font-size: 1.05rem;
+      color: var(--warm);
+      margin-bottom: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-label::before {
+      content: '§';
+      color: var(--gold);
+      font-size: 0.9rem;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px dashed var(--rule);
+      margin-bottom: 1px;
+    }
+
+    /* ── Entries ── */
+    .entry {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: baseline;
+      gap: 0.35rem 1rem;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--rule);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .entry:last-child { border-bottom: none; }
+
+    a.entry:hover .entry-title {
+      color: var(--gold);
+      text-decoration: underline;
+      text-decoration-style: wavy;
+      text-underline-offset: 4px;
+      text-decoration-color: var(--rust);
+    }
+
+    .entry-title {
+      font-size: 1rem;
+      line-height: 1.45;
+      color: var(--ink);
+      transition: color 0.1s;
+    }
+
+    .entry-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .entry-note {
+      grid-column: 1 / -1;
+      font-style: italic;
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── Prose ── */
+    .prose {
+      font-size: 0.975rem;
+      line-height: 1.85;
+      color: var(--warm);
+    }
+
+    .prose p + p { margin-top: 0.85rem; }
+    .prose strong { color: var(--ink); font-weight: 600; }
+    .prose em { color: var(--ink); font-style: italic; }
+
+    /* ── Likes ── */
+    .likes-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .like-pill {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      padding: 0.25rem 0.55rem;
+      border: 1px dashed var(--muted);
+      color: var(--muted);
+      cursor: default;
+      transition: border-color 0.1s, color 0.1s;
+
+    }
+
+    .like-pill:nth-child(4n)   { transform: rotate(-1.5deg); }
+    .like-pill:nth-child(4n+1) { transform: rotate(1.2deg);  }
+    .like-pill:nth-child(4n+2) { transform: rotate(-0.8deg); }
+    .like-pill:nth-child(4n+3) { transform: rotate(1.8deg);  }
+
+    .like-pill:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      border-style: solid;
+    }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.25rem;
+      border-top: 3px double var(--rule);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+  </style>
 </head>
-
 <body>
-    <div>
-        
-        <header role="banner">
-            <a href="#main">Skip to main content</a>
-        </header>
-        <main id="main" role="main">
-            <h1>S4GU4R0.wtf</h1>
-            <section aria-label="About">
-                <p>Private case manager, web developer, author, and student. Interested in things pertaining to being
-                    human and being alive.</p>
-            </section>
 
+  <header>
+    <div class="site-name">Saguaro <span>Prole</span></div>
+    <p class="tagline">// writing, notes, things i make — no schedule, no brand, no promises</p>
+    <nav>
+      <a href="#now">now</a>
+      <a href="#writing">writing</a>
+      <a href="#notes">notes</a>
+      <a href="#making">making</a>
+      <a href="#likes">likes</a>
+      <a href="#about">about</a>
+    </nav>
+  </header>
 
-
-            <section aria-label="Links">
-
-                <figure class="links--row">
-                    <figcaption>Projects</figcaption>
-                    <ul class="links--row">
-                        <li><a href="#" target="_blank" rel="noopener noreferrer external" title="ICE Out"><img
-                                    src="images/tiktok.png" alt="ICE Out" /></a></li>
-                        <li><a href="#" target="_blank" rel="noopener noreferrer external" title="Mastodon"><img
-                                    src="images/mastodon.png" alt="Mastodon" /></a></li>
-                        <li><a href="#" target="_blank" rel="noopener noreferrer external" title="Bluesky"><img
-                                    src="images/bluesky.png" alt="Bluesky" /></a></li>
-                    </ul>
-                </figure>
-
-                <figure class="links--row">
-                    <figcaption>Sites</figcaption>
-                    <ul class="links--row">
-                        <li><a href="#" target="_blank" rel="noopener noreferrer external" title="TikTok"><img
-                                    src="images/tiktok.png" alt="TikTok" /></a></li>
-                        <li><a href="#" target="_blank" rel="noopener noreferrer external" title="Mastodon"><img
-                                    src="images/mastodon.png" alt="Mastodon" /></a></li>
-                        <li><a href="#" target="_blank" rel="noopener noreferrer external" title="Bluesky"><img
-                                    src="images/bluesky.png" alt="Bluesky" /></a></li>
-                    </ul>
-                </figure>
-
-                <!-- https://stackoverflow.com/questions/1141639/how-to-semantically-provide-a-caption-title-or-label-for-a-list-in-html -->
-                <!-- 
-                <figure class="links--row">
-
-
-                <figcaption>Subscribe</figcaption>
-                <ul aria-label="RSS feed" class="links--row">
-                    <li><a href="/feed.xml" type="application/rss+xml" title="RSS Feed"><img src="images/rss-feed.png"
-                                alt="RSS" /></a>
-                    </li>
-
-                </ul>
-                </figure>
-                -->
-                <details>
-                    <summary>Where I hang out online <span aria-role="image" alt="">👇</span></summary>
-                    <figure class="links--row">
-                        <figcaption>Social Media</figcaption>
-                        <ul class="links--row">
-                            <li><a href="#" target="_blank" rel="noopener noreferrer external" title="TikTok"><img
-                                        src="images/tiktok.png" alt="TikTok" /></a></li>
-                            <li><a href="#" target="_blank" rel="noopener noreferrer external" title="Mastodon"><img
-                                        src="images/mastodon.png" alt="Mastodon" /></a></li>
-                            <li><a href="#" target="_blank" rel="noopener noreferrer external" title="Bluesky"><img
-                                        src="images/bluesky.png" alt="Bluesky" /></a></li>
-                        </ul>
-                    </figure>
-
-                    <figure class="links--row">
-                        <figcaption>Messaging</figcaption>
-                        <ul class="links--row">
-                            <li><a href="#" target="_blank" rel="noopener noreferrer external" title="Discord"><img
-                                        src="images/discord.png" alt="Discord" /></a></li>
-                            <li><a href="#" target="_blank" rel="noopener noreferrer external"><img
-                                        src="images/stoat.png" alt="Stoat.chat" /></a>
-                            </li>
-                        </ul>
-                    </figure>
-
-                    <figure class="links--row">
-                        <figcaption>Gaming</figcaption>
-                        <ul class="links--row">
-                            <li><a href="#" target="_blank" rel="noopener noreferrer external" title="Steam"><img
-                                        src="images/steam.png" alt="Steam" /></a></li>
-                        </ul>
-                    </figure>
-
-                    <figure>
-                        <figcaption>Niche</figcaption>
-                        <ul class="links--row">
-                            <li><a href="https://talk.tiddlywiki.org/" target="_blank"
-                                    rel="noopener noreferrer external" title="TiddlyWiki Forum"><img src=""
-                                        alt="TiddlyWiki Forum" /></a></li>
-                            <li><a href="https://archive.org/details/@s4gu4r0_world" target="_blank"
-                                    rel="noopener noreferrer external" title="TiddlyWiki Forum"><img src=""
-                                        alt="Internet Archive" /></a></li>
-                        </ul>
-                    </figure>
-                </details>
-            </section>
-        </main>
-
-        <footer role="contentinfo">
-        </footer>
+  <section id="now">
+    <div class="section-label">now</div>
+    <div class="prose">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu <strong>fugiat nulla pariatur.</strong> Honestly, fine.</p>
     </div>
-</body>
+  </section>
 
+  <section id="writing">
+    <div class="section-label">writing</div>
+
+    <a class="entry" href="#">
+      <span class="entry-title">Lorem ipsum dolor sit amet consectetur</span>
+      <span class="entry-meta">Mar 2026</span>
+      <span class="entry-note">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</span>
+    </a>
+
+    <a class="entry" href="#">
+      <span class="entry-title">Sed do eiusmod tempor incididunt ut labore</span>
+      <span class="entry-meta">Feb 2026</span>
+      <span class="entry-note">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</span>
+    </a>
+
+    <a class="entry" href="#">
+      <span class="entry-title">Excepteur sint occaecat cupidatat non proident</span>
+      <span class="entry-meta">Jan 2026</span>
+      <span class="entry-note">Sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+    </a>
+
+    <a class="entry" href="#">
+      <span class="entry-title">Nemo enim ipsam voluptatem quia voluptas</span>
+      <span class="entry-meta">Nov 2025</span>
+    </a>
+  </section>
+
+  <section id="notes">
+    <div class="section-label">notes</div>
+
+    <div class="entry">
+      <span class="entry-title">Neque porro quisquam est qui dolorem</span>
+      <span class="entry-meta">ongoing</span>
+      <span class="entry-note">Ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam.</span>
+    </div>
+
+    <div class="entry">
+      <span class="entry-title">Ut labore et dolore magnam aliquam</span>
+      <span class="entry-meta">ongoing</span>
+    </div>
+
+    <div class="entry">
+      <span class="entry-title">Quis autem vel eum iure reprehenderit</span>
+      <span class="entry-meta">Feb 2026</span>
+      <span class="entry-note">Qui in ea voluptate velit esse quam nihil molestiae consequatur.</span>
+    </div>
+  </section>
+
+  <section id="making">
+    <div class="section-label">making</div>
+
+    <a class="entry" href="#">
+      <span class="entry-title">Lorem Ipsum Generator</span>
+      <span class="entry-meta">PWA</span>
+      <span class="entry-note">Dolor sit amet consectetur adipiscing elit sed do eiusmod.</span>
+    </a>
+
+    <a class="entry" href="#">
+      <span class="entry-title">Tempor Incididunt Tool</span>
+      <span class="entry-meta">Tool</span>
+      <span class="entry-note">Ut labore et dolore magna aliqua enim ad minim veniam.</span>
+    </a>
+
+    <a class="entry" href="#">
+      <span class="entry-title">Exercitation Ullamco (p5.js)</span>
+      <span class="entry-meta">Experiment</span>
+      <span class="entry-note">Laboris nisi ut aliquip ex ea commodo consequat. Works, mostly.</span>
+    </a>
+  </section>
+
+  <section id="likes">
+    <div class="section-label">things i like</div>
+    <div class="likes-grid">
+      <span class="like-pill">lorem ipsum</span>
+      <span class="like-pill">dolor sit amet</span>
+      <span class="like-pill">consectetur</span>
+      <span class="like-pill">adipiscing elit</span>
+      <span class="like-pill">sed do eiusmod</span>
+      <span class="like-pill">tempor incididunt</span>
+      <span class="like-pill">ut labore</span>
+      <span class="like-pill">et dolore</span>
+      <span class="like-pill">magna aliqua</span>
+      <span class="like-pill">quis nostrud</span>
+      <span class="like-pill">exercitation</span>
+      <span class="like-pill">ullamco laboris</span>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-label">about</div>
+    <div class="prose">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum. <em>Nemo enim ipsam voluptatem</em> quia voluptas sit aspernatur aut odit aut fugit.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>saguaro prole &mdash; made while intoxicated with frustration</span>
+    <span>
+      <a href="#">rss</a>
+    </span>
+  </footer>
+
+</body>
 </html>
