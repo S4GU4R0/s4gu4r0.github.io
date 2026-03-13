@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Saguaro Prole</title>
+    <link>https://saguaroprole.github.io</link>
+    <description>Writing, notes, and things I make.</description>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 13 Mar 2026 04:40:41 +0000</lastBuildDate>
+    <atom:link href="https://saguaroprole.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+
+  </channel>
+</rss>
