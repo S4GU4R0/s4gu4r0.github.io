@@ -202,7 +202,43 @@
       border-style: solid;
     }
 
-    /* ── Footer ── */
+    /* ── Furniture headers ── */
+    .room-furniture {
+      width: 100%;
+      max-height: 160px;
+      object-fit: contain;
+      object-position: bottom center;
+      display: block;
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+    }
+
+    .room-furniture.wide {
+      max-height: 120px;
+    }
+
+    .living-room-furniture {
+      display: flex;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .living-room-furniture img {
+      object-fit: contain;
+      object-position: bottom;
+      opacity: 0.9;
+    }
+
+    .living-room-furniture .couch {
+      flex: 2;
+      max-height: 130px;
+    }
+
+    .living-room-furniture .entertainment {
+      flex: 1.5;
+      max-height: 130px;
+    }
     footer {
       margin-top: 4rem;
       padding-top: 1.25rem;
@@ -235,6 +271,7 @@
   </header>
 
   <section id="desk">
+    <img src="assets/Desk1_Front.png" alt="" class="room-furniture" />
     <div class="section-label">desk / writing</div>
 
     <a class="entry" href="#">
@@ -281,6 +318,7 @@
   </section>
 
   <section id="workshop">
+    <img src="assets/Table2_Front.png" alt="" class="room-furniture wide" />
     <div class="section-label">workshop</div>
 
     <a class="entry" href="#">
@@ -303,6 +341,10 @@
   </section>
 
   <section id="living-room">
+    <div class="living-room-furniture">
+      <img src="assets/Couch2_Front.png" alt="" class="couch" />
+      <img src="assets/EntertainmentCenterWood2_Front.png" alt="" class="entertainment" />
+    </div>
     <div class="section-label">living room</div>
     <div class="likes-grid">
       <span class="like-pill">lorem ipsum</span>
