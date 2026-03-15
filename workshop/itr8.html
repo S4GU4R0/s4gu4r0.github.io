@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ITR8: Thinking in Problems and Solutions — Saguaro Prole</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=DM+Mono:wght@400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:   #1a1710;
+      --ink:  #f2ece0;
+      --muted:#a09080;
+      --rule: #332e22;
+      --gold: #d4aa50;
+      --warm: #c8b08a;
+      --rust: #c05a38;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 17px; background: var(--bg); color: var(--ink); }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 7rem;
+    }
+
+    a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+    a:hover { color: var(--ink); }
+
+    /* ── Site header ── */
+    .site-header {
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 3px double var(--rule);
+    }
+
+    .site-name {
+      font-family: 'Special Elite', monospace;
+      font-size: 1.5rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .site-name span { color: var(--gold); }
+
+    .site-nav {
+      margin-top: 0.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.15rem 0;
+    }
+
+    .site-nav a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.6rem;
+      border: 1px solid transparent;
+      transition: color 0.1s, border-color 0.1s;
+    }
+
+    .site-nav a:hover {
+      color: var(--gold);
+      border-color: var(--rule);
+    }
+
+    /* ── Post header ── */
+    .post-header {
+      margin-bottom: 2rem;
+    }
+
+    .post-category {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .post-category::before { content: '§ '; color: var(--gold); }
+
+    .post-title {
+      font-family: 'Special Elite', monospace;
+      font-size: 1.9rem;
+      line-height: 1.2;
+      color: var(--ink);
+    }
+
+    .post-date {
+      margin-top: 0.5rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    /* ── Post body ── */
+    .post-body {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--warm);
+    }
+
+    .post-body p { margin-bottom: 1.2rem; }
+    .post-body h2 {
+      font-family: 'Special Elite', monospace;
+      font-size: 1.2rem;
+      color: var(--ink);
+      margin: 2rem 0 0.75rem;
+    }
+    .post-body h3 {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--warm);
+      letter-spacing: 0.08em;
+      margin: 1.5rem 0 0.5rem;
+    }
+    .post-body strong { color: var(--ink); }
+    .post-body em { color: var(--ink); font-style: italic; }
+    .post-body blockquote {
+      border-left: 2px solid var(--gold);
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .post-body code {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.85em;
+      background: var(--rule);
+      padding: 0.1em 0.35em;
+      border-radius: 2px;
+      color: var(--gold);
+    }
+    .post-body pre {
+      background: var(--rule);
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-left: 2px dashed var(--muted);
+    }
+    .post-body pre code {
+      background: none;
+      padding: 0;
+    }
+    .post-body hr {
+      border: none;
+      border-top: 1px dashed var(--rule);
+      margin: 2rem 0;
+    }
+
+    /* ── Footer ── */
+    .site-footer {
+      margin-top: 4rem;
+      padding-top: 1.25rem;
+      border-top: 3px double var(--rule);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .site-footer a { color: var(--muted); text-decoration: none; }
+    .site-footer a:hover { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="site-name" href="../index.html">Saguaro <span>Prole</span></a>
+    <nav class="site-nav">
+      <a href="../#desk">desk</a>
+      <a href="../#workshop">workshop</a>
+      <a href="../#living-room">living room</a>
+      <a href="../#front-door">front door</a>
+    </nav>
+  </header>
+
+  <article>
+    <div class="post-header">
+      <div class="post-category">notes</div>
+      <h1 class="post-title">ITR8: Thinking in Problems and Solutions</h1>
+      <div class="post-date">2026-03-14</div>
+    </div>
+
+    <div class="post-body">
+      <img src="https://s4gu4r0.github.io/assets/itr8.png" alt="screenshot of Iterate"
+    style="width:100%; margin: 0 auto; padding: 0;" />
+<h1 id="itr8-thinking-in-problems-and-solutions"><span aria-label="Iterate">ITR8</span>: Thinking in Problems and
+    Solutions</h1>
+<p>When I am deep in problem-solving, I don’t think in neat project hierarchies. I think in problems and solutions. One
+    leads to another.
+    Solutions improve through iteration. Problems decompose into smaller pieces. And sometimes, solving one problem
+    creates new ones.</p>
+<p>I built <span aria-label="Iterate">ITR8</span> to map that thinking directly.</p>
+<h2 id="the-core-insight-structural-symmetry">The Core Insight: Structural Symmetry</h2>
+<p>Problems and solutions are structurally equivalent—they’re just mirror images of each other.</p>
+<p>A <strong>problem breaks down</strong> into sub-problems. You decompose complexity.</p>
+<p>A <strong>solution iterates</strong> into refined versions. You evolve approaches.</p>
+<p>Both operations capture the same idea: taking something and subdividing it into more manageable parts. The difference
+    is semantic. Problems fragment; solutions improve. But the underlying structure is identical.</p>
+<p>This symmetry isn’t accidental. It’s fundamental to how problem-solving works. And it’s what <span
+        aria-label="Iterate">ITR8</span> is built on.</p>
+<h2 id="why-layout-matters">Why Layout Matters</h2>
+<p>Most tools treating problems and solutions treat them as interchangeable nodes. <span
+        aria-label="Iterate">ITR8</span> doesn’t. Instead, the direction
+    of each node is determined by what it is.</p>
+<p><strong>Problems flow downward.</strong> When you break down a problem, sub-problems branch beneath it. This mirrors
+    how we mentally decompose: you start with a big issue and drill down into its components.</p>
+<p><strong>Solutions flow upward.</strong> When a solution iterates, refined versions climb above it. This mirrors how
+    we mentally evolve: you start with an approach and refine it into better versions.</p>
+<p><strong>Everything flows rightward.</strong> Causal chains, connections, the whole network moves left to right. This
+    creates a natural reading direction and prevents the chaos of nodes ping-ponging in all directions.</p>
+<p>The result is a layout that emerges from the content itself, without manual positioning. Your graph organizes
+    spatially because the relationships have inherent direction.</p>
+<h2 id="connection-types-that-make-sense">Connection Types That Make Sense</h2>
+<p>Once you understand the symmetry, the connection types become obvious:</p>
+<ul>
+    <li><strong><code>--solves--&gt;</code></strong>: A solution addresses a problem. Solution goes up, problem goes
+        down.</li>
+    <li><strong><code>--causes--&gt;</code></strong>: One problem leads to another. Both stay at the same level
+        horizontally.</li>
+    <li><strong><code>--iterates--&gt;</code></strong>: A solution refines into a better version. Both stay at the same
+        level vertically.</li>
+    <li><strong><code>--breaks-down--&gt;</code></strong>: A problem decomposes into sub-problems. Child problems branch
+        downward.</li>
+</ul>
+<p>No arbitrary rules. No “pick a layout style.” The connections tell the story, and the story determines the shape.</p>
+<h2 id="starting-messy">Starting Messy</h2>
+<p>One principle drove the design: if you’re using a tool to solve a problem, you probably aren’t already organized.</p>
+<p><span aria-label="Iterate">ITR8</span> doesn’t demand a single root node. Don’t have to start with one pristine
+    problem at the top. Dump ten problems,
+    add solutions as they occur to you, add iterations when you refine them. The layout will still make sense because
+    the direction rules are structural, not positional.</p>
+<p>This matters more than it sounds. Most tools in this space want you to be organized before you use them. <span
+        aria-label="Iterate">ITR8</span> wants
+    you to be disorganized—that’s the whole point.</p>
+<h2 id="text-input-visual-output">Text Input, Visual Output</h2>
+<p>You can use the GUI to click and create nodes, or you can write it out in a text syntax inspired by Mermaid:</p>
+<pre><code><span class="hljs-attribute">P</span>: Slow website performance
+<span class="hljs-attribute">P</span>: High server costs
+<span class="hljs-attribute">S</span>: Implement caching
+<span class="hljs-attribute">S</span>: Use CDN
+
+<span class="brainfuck"><span class="hljs-comment">Slow</span> <span class="hljs-comment">website</span> <span class="hljs-comment">performance</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">solves</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span>&gt; <span class="hljs-comment">Implement</span> <span class="hljs-comment">caching</span>
+<span class="hljs-comment">High</span> <span class="hljs-comment">server</span> <span class="hljs-comment">costs</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">solves</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span>&gt; <span class="hljs-comment">Use</span> <span class="hljs-comment">CDN</span>
+<span class="hljs-comment">Slow</span> <span class="hljs-comment">website</span> <span class="hljs-comment">performance</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">causes</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span>&gt; <span class="hljs-comment">High</span> <span class="hljs-comment">server</span> <span class="hljs-comment">costs</span></span>
+</code></pre>
+<p>Paste that in, and you get a visual network. Or import/export as a file. Or encode it into the URL and share it as a
+    link. GitHub Pages doesn’t mind.</p>
+<p>The flexibility matters. Sometimes you want to sketch in the GUI. Sometimes you want to paste a whole network. The
+    tool adapts.</p>
+<h2 id="why-this-matters">Why This Matters</h2>
+<p>Problem-solving isn’t linear. It’s interconnected, iterative, and messy. You start with one issue, discover it causes
+    another, refine your approach, realize you need a sub-solution, iterate again.</p>
+<p>Most tools flatten that into hierarchies or force you into linear workflows. <span aria-label="Iterate">ITR8</span>
+    maps the actual shape of the
+    thinking.</p>
+<p>The symmetry between problems and solutions isn’t just elegant—it’s honest. It reflects how these things actually
+    relate. And when your tool’s structure matches your thought process, you stop fighting the interface and start using
+    it to think.</p>
+<p>That’s when it becomes useful.</p>
+    </div>
+  </article>
+
+  
+
+  <footer class="site-footer">
+    <span>saguaro prole &mdash; made while intoxicated with frustration</span>
+    <a href="/rss.xml">rss</a>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!--
+title: ITR8: Thinking in Problems and Solutions
+date: 2026-03-14
+category: notes
+-->
+<img src="https://s4gu4r0.github.io/assets/itr8.png" alt="screenshot of Iterate"
+    style="width:100%; margin: 0 auto; padding: 0;" />
+<h1 id="itr8-thinking-in-problems-and-solutions"><span aria-label="Iterate">ITR8</span>: Thinking in Problems and
+    Solutions</h1>
+<p>When I am deep in problem-solving, I don’t think in neat project hierarchies. I think in problems and solutions. One
+    leads to another.
+    Solutions improve through iteration. Problems decompose into smaller pieces. And sometimes, solving one problem
+    creates new ones.</p>
+<p>I built <span aria-label="Iterate">ITR8</span> to map that thinking directly.</p>
+<h2 id="the-core-insight-structural-symmetry">The Core Insight: Structural Symmetry</h2>
+<p>Problems and solutions are structurally equivalent—they’re just mirror images of each other.</p>
+<p>A <strong>problem breaks down</strong> into sub-problems. You decompose complexity.</p>
+<p>A <strong>solution iterates</strong> into refined versions. You evolve approaches.</p>
+<p>Both operations capture the same idea: taking something and subdividing it into more manageable parts. The difference
+    is semantic. Problems fragment; solutions improve. But the underlying structure is identical.</p>
+<p>This symmetry isn’t accidental. It’s fundamental to how problem-solving works. And it’s what <span
+        aria-label="Iterate">ITR8</span> is built on.</p>
+<h2 id="why-layout-matters">Why Layout Matters</h2>
+<p>Most tools treating problems and solutions treat them as interchangeable nodes. <span
+        aria-label="Iterate">ITR8</span> doesn’t. Instead, the direction
+    of each node is determined by what it is.</p>
+<p><strong>Problems flow downward.</strong> When you break down a problem, sub-problems branch beneath it. This mirrors
+    how we mentally decompose: you start with a big issue and drill down into its components.</p>
+<p><strong>Solutions flow upward.</strong> When a solution iterates, refined versions climb above it. This mirrors how
+    we mentally evolve: you start with an approach and refine it into better versions.</p>
+<p><strong>Everything flows rightward.</strong> Causal chains, connections, the whole network moves left to right. This
+    creates a natural reading direction and prevents the chaos of nodes ping-ponging in all directions.</p>
+<p>The result is a layout that emerges from the content itself, without manual positioning. Your graph organizes
+    spatially because the relationships have inherent direction.</p>
+<h2 id="connection-types-that-make-sense">Connection Types That Make Sense</h2>
+<p>Once you understand the symmetry, the connection types become obvious:</p>
+<ul>
+    <li><strong><code>--solves--&gt;</code></strong>: A solution addresses a problem. Solution goes up, problem goes
+        down.</li>
+    <li><strong><code>--causes--&gt;</code></strong>: One problem leads to another. Both stay at the same level
+        horizontally.</li>
+    <li><strong><code>--iterates--&gt;</code></strong>: A solution refines into a better version. Both stay at the same
+        level vertically.</li>
+    <li><strong><code>--breaks-down--&gt;</code></strong>: A problem decomposes into sub-problems. Child problems branch
+        downward.</li>
+</ul>
+<p>No arbitrary rules. No “pick a layout style.” The connections tell the story, and the story determines the shape.</p>
+<h2 id="starting-messy">Starting Messy</h2>
+<p>One principle drove the design: if you’re using a tool to solve a problem, you probably aren’t already organized.</p>
+<p><span aria-label="Iterate">ITR8</span> doesn’t demand a single root node. Don’t have to start with one pristine
+    problem at the top. Dump ten problems,
+    add solutions as they occur to you, add iterations when you refine them. The layout will still make sense because
+    the direction rules are structural, not positional.</p>
+<p>This matters more than it sounds. Most tools in this space want you to be organized before you use them. <span
+        aria-label="Iterate">ITR8</span> wants
+    you to be disorganized—that’s the whole point.</p>
+<h2 id="text-input-visual-output">Text Input, Visual Output</h2>
+<p>You can use the GUI to click and create nodes, or you can write it out in a text syntax inspired by Mermaid:</p>
+<pre><code><span class="hljs-attribute">P</span>: Slow website performance
+<span class="hljs-attribute">P</span>: High server costs
+<span class="hljs-attribute">S</span>: Implement caching
+<span class="hljs-attribute">S</span>: Use CDN
+
+<span class="brainfuck"><span class="hljs-comment">Slow</span> <span class="hljs-comment">website</span> <span class="hljs-comment">performance</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">solves</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span>&gt; <span class="hljs-comment">Implement</span> <span class="hljs-comment">caching</span>
+<span class="hljs-comment">High</span> <span class="hljs-comment">server</span> <span class="hljs-comment">costs</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">solves</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span>&gt; <span class="hljs-comment">Use</span> <span class="hljs-comment">CDN</span>
+<span class="hljs-comment">Slow</span> <span class="hljs-comment">website</span> <span class="hljs-comment">performance</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">causes</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span>&gt; <span class="hljs-comment">High</span> <span class="hljs-comment">server</span> <span class="hljs-comment">costs</span></span>
+</code></pre>
+<p>Paste that in, and you get a visual network. Or import/export as a file. Or encode it into the URL and share it as a
+    link. GitHub Pages doesn’t mind.</p>
+<p>The flexibility matters. Sometimes you want to sketch in the GUI. Sometimes you want to paste a whole network. The
+    tool adapts.</p>
+<h2 id="why-this-matters">Why This Matters</h2>
+<p>Problem-solving isn’t linear. It’s interconnected, iterative, and messy. You start with one issue, discover it causes
+    another, refine your approach, realize you need a sub-solution, iterate again.</p>
+<p>Most tools flatten that into hierarchies or force you into linear workflows. <span aria-label="Iterate">ITR8</span>
+    maps the actual shape of the
+    thinking.</p>
+<p>The symmetry between problems and solutions isn’t just elegant—it’s honest. It reflects how these things actually
+    relate. And when your tool’s structure matches your thought process, you stop fighting the interface and start using
+    it to think.</p>
+<p>That’s when it becomes useful.</p>
