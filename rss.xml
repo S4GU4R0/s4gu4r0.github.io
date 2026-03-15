@@ -5,7 +5,7 @@
     <link>https://s4gu4r0.github.io</link>
     <description>My online house.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Mar 2026 06:57:14 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2026 08:00:12 +0000</lastBuildDate>
     <atom:link href="https://s4gu4r0.github.io/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>ITR8: Thinking in Problems and Solutions</title>
@@ -14,10 +14,11 @@
       <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
       <category>workshop</category>
       <description>ITR8: Thinking in Problems and
-    Solutions
+        Solutions
+
 When I am deep in problem-solving, I don’t think in neat project hierarchies. I think in problems and solutions. One
     leads to another.
-    Solutions improve through iteration. Problems decompose into smaller pieces. And sometimes,</description>
+    Solutions improve through iteration. Problems decompose into smaller pieces. And</description>
     </item>
     <item>
       <title>Judgment: Exploring its repellant qualities</title>
@@ -25,7 +26,14 @@ When I am deep in problem-solving, I don’t think in neat project hierarchies. 
       <guid isPermaLink="true">https://s4gu4r0.github.io/workshop/judgment.html</guid>
       <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
       <category>workshop</category>
-      <description></description>
+      <description>Judgment
+
+
+    
+        This piece is part of my exploring how emotions work. Rather than explore them exclusively as sensations or
+        nearly
+        spiritual experiences, I find it interesting to explore them as agents of motion.
+        This piece began with a conv</description>
     </item>
   </channel>
 </rss>
