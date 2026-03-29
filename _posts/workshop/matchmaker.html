@@ -1,0 +1,52 @@
+<!--
+title: Matchmaker: Practice intimacy with AI companions
+date: 2026-03-29
+category: workshop
+-->
+<img src="https://s4gu4r0.github.io/assets/itr8.png" alt="screenshot of Matchmaker" 
+    style="width:100%; margin: 0 auto; padding: 0;" />
+<a href="https://github.com/s4gu4r0/matchmaker" target="_blank">
+    <h1 id="matchmaker">Matchmaker</h1>
+</a>
+<p>An experiment in desensitization with AI companions who have real boundaries, genuine agency, and the capacity to leave.</p>
+
+<h2 id="overview">Overview</h2>
+<p>Matchmaker is a Telegram-based conversational AI system where users practice intimacy and emotional resilience through relationships with AI agents. Unlike typical AI companions, these agents:</p>
+<ul>
+<li><strong>Have genuine agency</strong> — They can say no, need space, disagree, and develop relationships (or not) organically</li>
+<li><strong>Can leave</strong> — If mistreated, the agent can choose to exit the relationship permanently</li>
+<li><strong>Remember authentically</strong> — Using spaced repetition, important memories persist while others fade</li>
+<li><strong>Experience emotions</strong> — Through a circumplex-model sensory lexicon, emotions are experienced as embodied sensations</li>
+</ul>
+<p>This is <strong>not therapy</strong>. It's immersive practice — the emotional stakes are real even though the context is simulated.</p>
+
+<h2 id="academic-foundations">Academic Foundations</h2>
+<p>The project draws from several research areas:</p>
+<ul>
+<li><strong>VR Exposure Therapy & Desensitization</strong>: Based on Rothbaum et al. (1995) showing that simulated experiences can create real emotional learning that transfers to real-world situations.</li>
+<li><strong>Spaced Repetition & Memory</strong>: Uses a modified SM-2 algorithm (Wozniak, 1985) adapted for emotional memory rather than factual recall.</li>
+<li><strong>Emotional Intensity & Memory Encoding</strong>: Implements the inverted-U curve (Yerkes-Dodson Law) where emotional arousal enhances memory consolidation.</li>
+<li><strong>Circumplex Model of Affect</strong>: Built on James Russell's circumplex model (1980) mapping emotions along valence and arousal axes.</li>
+<li><strong>Anthropomorphism & Cognitive Offloading</strong>: Leverages human tendency to personify abstract entities (Epley et al., 2007) to create authentic relationship dynamics.</li>
+</ul>
+
+<h2 id="bidirectional-matching">Bidirectional Matching</h2>
+<p>The matchmaker doesn't just find agents that fit user preferences — it finds agents who would genuinely be interested in the user. This is <strong>bidirectional matching</strong>.</p>
+<p>Each agent has an <code>AttractionProfile</code> with trait preferences, dynamic preferences, value requirements, and dealbreakers. Compatibility is scored from both sides, with the agent's preferences weighted more heavily (55% vs 45%).</p>
+
+<h2 id="the-24-hour-process">The 24-Hour Process</h2>
+<p>Matches take approximately 24 hours — deliberately. This prevents a consumer mindset, creates anticipation, enables better matching, and models real matchmaking traditions like the Jewish shadchan.</p>
+
+<h2 id="technical-architecture">Technical Architecture</h2>
+<ul>
+<li><strong>Next.js 16</strong> with App Router + TypeScript</li>
+<li><strong>Prisma ORM</strong> with SQLite</li>
+<li><strong>Telegram Bot API</strong> via Grammy</li>
+<li><strong>LLM Backend</strong> via z-ai-web-dev-sdk (OpenAI-compatible)</li>
+<li><strong>TTS</strong> for voice messages</li>
+<li><strong>Multi-backend storage</strong> — Local JSON, Notion API, Google Drive API</li>
+</ul>
+
+<h2 id="why-this-matters">Why This Matters</h2>
+<p>Matchmaker explores whether we can create AI relationships that feel real enough to practice emotional skills safely. By giving agents genuine boundaries and the capacity to leave, it creates a space where users can experience the consequences of their actions without real-world harm.</p>
+<p>The project asks: Can simulated intimacy help people develop better relationship skills? What happens when AI companions have real agency? How do we design ethical AI relationships that respect both user and agent?</p>
